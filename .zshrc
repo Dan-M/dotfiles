@@ -149,8 +149,8 @@ alias gen-pass="head /dev/urandom | tr -dc A-Za-z0-9 | head -c 52 ; echo ''"
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # broot
-alias br='br -dhp'
-alias bs='br --sizes'
+alias br='broot -dhp'
+alias bs='broot --sizes'
 
 alias cpcurl='curl -H "Content-Type: application/json" -H "cp-axa-user-id: CP-ADMIN-USER" -H "cp-axa-user-role: ADMIN" $@'
 
@@ -166,7 +166,7 @@ export GPG_TTY=$(tty)
 export XDG_CACHE_HOME=$HOME/.cache
 
 # Source broot
-source /home/dan/.config/broot/launcher/bash/br
+# source /home/dan/.config/broot/launcher/bash/br
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
