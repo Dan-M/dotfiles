@@ -76,6 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
+        gh
         archlinux
         colored-man-pages
         docker
@@ -86,6 +87,8 @@ plugins=(git
         yarn
         sbt
         scala
+        dotenv
+        fzf
         zsh-interactive-cd)
 
 source $ZSH/oh-my-zsh.sh
@@ -166,7 +169,7 @@ export GPG_TTY=$(tty)
 export XDG_CACHE_HOME=$HOME/.cache
 
 # Source broot
-source /home/dan/.config/broot/launcher/bash/br
+# source /home/dan/.config/broot/launcher/bash/br
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -175,7 +178,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Use hub instead of git
-eval "$(hub alias -s)"
+# eval "$(hub alias -s)"
 
 # Hook direnv to allow project specific exports
 eval "$(direnv hook zsh)"
@@ -192,3 +195,6 @@ export FZF_DEFAULT_COMMAND="fd . $HOME"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+
+source $HOME/.config/broot/launcher/bash/br
+source $HOME/.bw-session

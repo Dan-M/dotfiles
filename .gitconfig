@@ -1,0 +1,26 @@
+[user]
+	name = Dan Maffiew
+	email = dmaffiew@gmail.com
+	signingkey = 841DDB39932A0880
+[credential "https://github.com"]
+	username = Dan-M
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = $HOME/.local/bin/bw-get "Github cmd token"
+[commit]
+	gpgsign = false
+[core]
+    editor = nvim
+[diff "ansible-vault"]
+    textconv = ansible-vault view
+    chachetextconv = false
+[merge "ansible-vault"]
+	name = ansible-vault merge driver
+	driver = /usr/local/bin/ansible-vault-merge -- %O %A %B %P
+[pull]
+  rebase = false
+
