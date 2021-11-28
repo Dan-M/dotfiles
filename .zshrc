@@ -152,8 +152,8 @@ alias gen-pass="head /dev/urandom | tr -dc A-Za-z0-9 | head -c 52 ; echo ''"
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # broot
-alias br='br -dhp'
-alias bs='br --sizes'
+alias br='broot -dhp'
+alias bs='broot --sizes'
 
 alias cpcurl='curl -H "Content-Type: application/json" -H "cp-axa-user-id: CP-ADMIN-USER" -H "cp-axa-user-role: ADMIN" $@'
 
