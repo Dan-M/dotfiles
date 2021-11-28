@@ -10,7 +10,7 @@
 	process = git-lfs filter-process
 	required = true
 [credential]
-	helper = $HOME/.local/bin/bw-get "Github cmd token"
+	helper = rbw
 [commit]
 	gpgsign = false
 [core]
