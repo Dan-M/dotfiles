@@ -197,4 +197,3 @@ export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
 source $HOME/.config/broot/launcher/bash/br
-source $HOME/.bw-session
