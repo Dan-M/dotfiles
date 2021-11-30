@@ -58,6 +58,8 @@ bindsym $mod+Shift+Return                 exec --no-startup-id "rofi -show drun 
 # mod tab for app switching:
 bindsym $mod+Tab                          exec --no-startup-id "rofi -show window -line 10 -eh 2 -width 30"
 
+bindsym $mod+Shift+p                      exec --no-startup-id "rofi-rbw"
+
 # kill focused window
 bindsym $mod+Shift+q                      kill
 
@@ -304,7 +306,3 @@ exec_always --no-startup-id               killall picom;  picom -b -c
 # Restore background
 exec --no-startup-id                      nitrogen --restore
 
-#Swap escape and caps lock
-exec_always --no-startup-id               xmodmap -e "clear lock"
-exec_always --no-startup-id               xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
-exec_always --no-startup-id               xmodmap -e "keycode 66 = Escape NoSymbol Escape"
