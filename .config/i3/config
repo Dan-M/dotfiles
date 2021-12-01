@@ -16,7 +16,7 @@ focus_follows_mouse                       no
 # e.g. if a link is clicked in another application
 focus_on_window_activation                focus
 
-font                                      pango:monospace 8
+font                                      pango:"Fira Code", 8
 
 # Define Gaps
 gaps outer                                5
@@ -53,10 +53,10 @@ bindsym $mod+Return                       exec --no-startup-id alacritty
 bindsym $alt+Return                       exec --no-startup-id alacritty
 
 # ...or any other app using rofi:
-bindsym $mod+Shift+Return                 exec --no-startup-id "rofi -show drun -line 10 -eh 2 -width 30"
+bindsym $mod+Shift+Return                 exec --no-startup-id "rofi -modi drun,window,filebrowser -show drun -theme ~/.config/rofi/theme.rasi"
 
 # mod tab for app switching:
-bindsym $mod+Tab                          exec --no-startup-id "rofi -show window -line 10 -eh 2 -width 30"
+bindsym $mod+Tab                          exec --no-startup-id "rofi -modi window,drun,filebrowser -show window -theme ~/.config/rofi/theme.rasi"
 
 bindsym $mod+Shift+p                      exec --no-startup-id "rofi-rbw"
 
