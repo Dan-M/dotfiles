@@ -1,7 +1,7 @@
 * {
   backgroundColor: #282828;
 	buttonBgColor: #44475A;
-	buttoncTextColor: #F8F8F2;
+	buttonTextColor: #F8F8F2;
 	borderColor: #D72638;
 
 	spacing: 0;
@@ -41,7 +41,7 @@ textbox-prompt-colon {
 }
 
 entry {
-	text-color: @buttoncTextColor;
+	text-color: @buttonTextColor;
 }
 
 case-indicator {
@@ -55,7 +55,7 @@ mode-switcher, message {
 
 button, textbox {
 	background-color: @buttonBgColor;
-	text-color: @buttoncTextColor;
+	text-color: @buttonTextColor;
 	padding: 5px;
 }
 
@@ -95,7 +95,7 @@ element alternate {
 }
 
 element normal normal, element selected normal, element alternate normal {
-	text-color: @buttoncTextColor;
+	text-color: @buttonTextColor;
 }
 
 element normal urgent, element selected urgent, element alternate urgent {
