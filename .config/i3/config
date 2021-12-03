@@ -233,7 +233,7 @@ for_window [class="Steam"]                              floating enable border n
 for_window [title="^cp_.*$"]                            move container to workspace 10
 
 # note taking
-for_window [title="diary-note"]                         floating enable sticky enable
+for_window [title="neuron_zettel"]                      floating enable sticky enable
 
 # #################################################################
 # The bar

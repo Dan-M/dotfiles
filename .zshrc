@@ -197,3 +197,5 @@ export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
 source $HOME/.config/broot/launcher/bash/br
+
+if [ -e /home/dan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/dan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
