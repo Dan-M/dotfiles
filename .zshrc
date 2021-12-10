@@ -117,9 +117,9 @@ source $ZSH/oh-my-zsh.sh
 #
 
 # Fast acces to some config files
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias i3config="nvim ~/.config/i3/config"
+alias zshconfig="lvim ~/.zshrc"
+alias ohmyzsh="lvim ~/.oh-my-zsh"
+alias i3config="lvim ~/.config/i3/config"
 
 alias mutt="neomutt"
 
@@ -137,8 +137,8 @@ alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
 # start vlc using the web cam
 alias vlcme='cvlc v4l2:// :input-slave=alsa:// :v4l-vdev="/dev/video0"'
-alias vi='nvim'
-alias vim='nvim'
+alias vi='lvim'
+alias vim='lvim'
 alias vifm="~/.config/vifm/scripts/vifmrun"
 
 alias colorselect='gcolor2'
@@ -157,8 +157,8 @@ alias bs='broot --sizes'
 
 alias cpcurl='curl -H "Content-Type: application/json" -H "cp-axa-user-id: CP-ADMIN-USER" -H "cp-axa-user-role: ADMIN" $@'
 
-export EDITOR='/usr/bin/nvim'
-export VISUAL='/usr/bin/nvim'
+export EDITOR='$HOME/.local/bin/lvim'
+export VISUAL='$HOME/.local/bin/lvim'
 export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansiblevault
 export JDK_HOME=/usr/lib/jvm/default/
 export PAGER=nvimpager
