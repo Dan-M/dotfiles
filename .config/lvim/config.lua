@@ -10,6 +10,8 @@ require "user.lvimconfig"
 -- LSP config
 require "user.lsp"
 
+require "user.treesitter"
+
 lvim.plugins = {
   { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' },
   { 'vim-test/vim-test'},
@@ -60,16 +62,19 @@ lvim.plugins = {
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
   },
-  { "oberblastmeister/neuron.nvim", branch = "unstable" },
+  {
+    "oberblastmeister/neuron.nvim",
+    branch = "unstable",
+    config = function()
+      require('user.neuron').config()
+    end,
+  },
   -- markdown preview in nvim
   {"ellisonleao/glow.nvim"},
-}
-
-require'neuron'.setup {
-    virtual_titles = true,
-    mappings = true,
-    run = nil, -- function to run when in neuron dir
-    neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
-    leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
+  {'nvim-orgmode/orgmode',
+    config = function()
+      require('user.orgmode').config()
+    end,
+  }
 }
 
