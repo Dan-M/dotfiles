@@ -68,6 +68,11 @@ M.config = function()
         end
       end
     },
+    org_todo_keywords = {'TODO', 'INPROGRESS', '|', 'DONE', 'DELEGATED'},
+    org_todo_keyword_faces = {
+      INPROGRESS = ':foreground blue :weight bold',
+      DELEGATED = ':background #FFFFFF :slant italic :underline on',
+    }
   }
 end
 
