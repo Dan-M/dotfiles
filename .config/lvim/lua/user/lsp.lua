@@ -28,15 +28,12 @@ M.config = function()
 
   vim.list_extend(lvim.lsp.override, { 'java' })
   local opts = {
-    -- use only .git as root to have the whole mvn hierarchy in on LSP server
+    -- use only .git as root to have the whole mvn hierarchy in one LSP server
     root_dir = function(fname)
       return require('lspconfig').util.root_pattern '.git'(fname)
     end,
   }
   require('lvim.lsp.manager').setup('jdtls', opts)
-
-  vim.list_extend(lvim.lsp.override, { 'null-ls' })
-
 
 end
 return M
