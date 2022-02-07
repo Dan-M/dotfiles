@@ -4,8 +4,8 @@ lvim.format_on_save = false
 lvim.colorscheme = 'onedarker'
 
 -- Feature flags
-lvim.builtin.fancy_statusline = { active = true } -- enable/disable fancy statusline
-lvim.builtin.copilot = { active = true }          -- enable/disable github copilot
+lvim.builtin.fancy_statusline = { active = false } -- enable/disable fancy statusline
+lvim.builtin.copilot = { active = true } -- enable/disable github copilot
 -- key maps
 require('user.keys').config()
 
@@ -86,9 +86,9 @@ lvim.plugins = {
     config = function()
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_assume_mapped = true
-      vim.g.copilot_tab_fallback = ""
+      vim.g.copilot_tab_fallback = ''
       vim.g.copilot_filetypes = {
-        ["*"] = true,
+        ['*'] = true,
         markdown = false,
         dart = false,
         gitcommit = false,
@@ -103,12 +103,24 @@ lvim.plugins = {
   { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' },
   {
     'vim-test/vim-test',
-    cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
+    cmd = { 'TestNearest', 'TestFile', 'TestSuite', 'TestLast', 'TestVisit' },
     config = function()
-      require("user.vim-test").config()
+      require('user.vim-test').config()
     end,
   },
   { 'morhetz/gruvbox' },
-  { 'scalameta/nvim-metals' },
+  {
+    'scalameta/nvim-metals',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require('user.metals').config()
+    end,
+  },
   { 'mfussenegger/nvim-jdtls' },
 }
+
+lvim.autocommands.custom_groups = {
+  { "FileType", "scala,sbt", "lua require('user.metals').config()" }
+}
+
+

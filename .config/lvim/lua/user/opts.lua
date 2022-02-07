@@ -24,6 +24,8 @@ M.config = function()
     [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
   vim.wo.foldnestmax = 3
   vim.wo.foldminlines = 1
+  -- metals wants to show mesages
+  -- vim.opt_global.shortmess:remove("F")
 end
 
 return M

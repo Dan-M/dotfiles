@@ -5,10 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+# Path to your oh-my-zsh installation
 export ZSH="/home/dan/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -189,6 +186,7 @@ bindkey -v
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH=$HOME/.config/nvcode/utils/bin:$PATH
 export PATH=$HOME/.npm/bin:$PATH
+export PATH="$PATH:/home/dan/.local/share/coursier/bin"
 
 # FZF & fd to navigate
 export FZF_DEFAULT_COMMAND="fd . $HOME"
