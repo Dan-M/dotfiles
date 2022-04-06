@@ -1,7 +1,7 @@
 local M = {}
 M.config = function()
   -- configuration of lvim builtin
-  lvim.builtin.dashboard.active = false
+  lvim.builtin.alpha.active = true
   lvim.builtin.terminal.active = true
   lvim.builtin.nvimtree.side = "left"
   lvim.builtin.nvimtree.show_icons.git = 0
@@ -9,23 +9,9 @@ M.config = function()
   lvim.builtin.treesitter.ensure_installed = "maintained"
   lvim.builtin.treesitter.ignore_install = { "haskell" }
   lvim.builtin.treesitter.highlight.enabled = true
-  -- Configure treesitter for org mode
-  local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-  parser_config.org = {
-    install_info = {
-      url = 'https://github.com/milisims/tree-sitter-org',
-      revision = 'main',
-      files = { 'src/parser.c', 'src/scanner.cc' },
-    },
-    filetype = 'org',
-  }
 
   -- lvim.builtin.project.detection_methods = { "pattern", "lsp" }
   -- lvim.builtin.project.patterns = { "package.json", ".git" }
-
-  if lvim.builtin.fancy_statusline.active then
-    require("user.lualine").config()
-  end
 
   if lvim.builtin.copilot.active then
     lvim.keys.insert_mode["<c-h>"] = { [[copilot#Accept("\<CR>")]], { expr = true, script = true } }

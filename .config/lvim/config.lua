@@ -61,27 +61,6 @@ lvim.plugins = {
     requires = 'hrsh7th/nvim-cmp',
   },
   {
-    'oberblastmeister/neuron.nvim',
-    branch = 'unstable',
-    config = function()
-      require('user.neuron').config()
-    end,
-  },
-  {
-    'nvim-orgmode/orgmode',
-    config = function()
-      require('user.orgmode').config()
-    end,
-  },
-  {
-    'akinsho/org-bullets.nvim',
-    config = function()
-      require('org-bullets').setup {
-        symbols = { '◉', '○', '✸', '✿' },
-      }
-    end,
-  },
-  {
     'github/copilot.vim',
     config = function()
       vim.g.copilot_no_tab_map = true
@@ -117,10 +96,14 @@ lvim.plugins = {
     end,
   },
   { 'mfussenegger/nvim-jdtls' },
+  {
+    'ruifm/gitlinker.nvim',
+    config = function()
+      require('user.gitlinker').config()
+    end,
+  },
 }
 
 lvim.autocommands.custom_groups = {
   { "FileType", "scala,sbt", "lua require('user.metals').config()" }
 }
-
-

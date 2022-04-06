@@ -21,6 +21,12 @@ M.config = function()
     f = { "<cmd>TestFile<cr>", "Test File" },
     n = { "<cmd>TestNearest<cr>", "Test Nearest" },
   }
+  lvim.builtin.which_key.mappings["o"] = {
+    name = "Octo Github",
+    p = { "<cmd>Octo pr list<cr>", "List PRs" },
+    i = { "<cmd>Octo issue list <cr>", "List Issues" },
+  }
+
 end
 
 return M
