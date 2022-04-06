@@ -16,7 +16,7 @@ focus_follows_mouse                       no
 # e.g. if a link is clicked in another application
 focus_on_window_activation                focus
 
-font                                      pango:"Fira Code", 8
+font                                      pango:monospace, 8
 
 # Define Gaps
 gaps outer                                5
