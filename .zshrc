@@ -154,8 +154,8 @@ alias bs='broot --sizes'
 
 alias cpcurl='curl -H "Content-Type: application/json" -H "cp-axa-user-id: CP-ADMIN-USER" -H "cp-axa-user-role: ADMIN" $@'
 
-export EDITOR='$HOME/.local/bin/lvim'
-export VISUAL='$HOME/.local/bin/lvim'
+export EDITOR="$HOME/.local/bin/lvim"
+export VISUAL="$HOME/.local/bin/lvim"
 export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansiblevault
 export JDK_HOME=/usr/lib/jvm/default/
 export PAGER=nvimpager
