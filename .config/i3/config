@@ -80,7 +80,7 @@ bindsym $mod+Shift+s                      exec --no-startup-id "slack"
 bindsym $mod+Shift+m                      exec --no-startup-id "mailspring"
 bindsym $mod+Shift+v                      exec --no-startup-id "code"
 
-bindsym $mod+n                            exec --no-startup-id "start-note.sh"
+bindsym $mod+n                            exec --no-startup-id "logseq"
 
 # Navigation
 bindsym $mod+k                            focus up
