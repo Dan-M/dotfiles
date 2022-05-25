@@ -2,10 +2,10 @@
 lvim.log.level = 'warn'
 lvim.format_on_save = false
 lvim.colorscheme = 'onedarker'
-
 -- Feature flags
 lvim.builtin.fancy_statusline = { active = false } -- enable/disable fancy statusline
 lvim.builtin.copilot = { active = true } -- enable/disable github copilot
+lvim.builtin.alpha.active = true
 -- key maps
 require('user.keys').config()
 
@@ -28,12 +28,6 @@ lvim.plugins = {
     event = 'BufRead',
     config = function()
       require('user.hop').config()
-    end,
-  },
-  {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      require('user.colorizer').config()
     end,
   },
   {
