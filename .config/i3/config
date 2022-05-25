@@ -16,7 +16,7 @@ focus_follows_mouse                       no
 # e.g. if a link is clicked in another application
 focus_on_window_activation                focus
 
-font                                      pango:monospace, 8
+font                                      pango:Source Code Pro, 8
 
 # Define Gaps
 gaps outer                                5
@@ -245,15 +245,11 @@ bar {
             mpd \
             cpu2 spacer spacer \
             memory spacer spacer \
-            traffic spacer spacer \
             pacman spacer spacer \
-            http_status spacer spacer \
-            kernel \
+            battery spacer spacer\
             datetime spacer \
         -p \
             cpu2.temp_pattern=temp1_input cpu2.fan_pattern=fan2_input \
-            http_status.target=http://www.4-ti.com http_status.label=4-ti.com http_status.expect=200 \
-            traffic.exclude=br-f4b7e783c7db,lo,virbr,docker,vboxnet,veth,br-2e72c3bdf842 traffic.graphlen=8 \
         -t firefox-dark-powerline
 
     position                              top
