@@ -1,0 +1,1 @@
+xrandr --output DP-4 --scale 1.5x1.5
