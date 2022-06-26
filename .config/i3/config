@@ -302,3 +302,6 @@ exec_always --no-startup-id               killall picom;  picom -b -c
 # Restore background
 exec --no-startup-id                      nitrogen --restore
 
+# scale down with xrandr
+exec --no-startup-id                      "xrandr --output DP-4 --scale 1.5x1.5"
+
