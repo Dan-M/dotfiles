@@ -19,7 +19,7 @@ focus_on_window_activation                focus
 font                                      pango:Source Code Pro, 8
 
 # Define Gaps
-gaps outer                                5
+gaps outer                                3
 gaps inner                                15
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -203,9 +203,8 @@ bindsym $alt+Pause                        mode "$mode_system"
 
 # Assign specific apps to workspaces
 assign [class="^Slack$"]                                9
-assign [class="^Mailspring$"]                           9
 
-for_window [class="^.*"]                                border pixel 1
+for_window [class="^.*"]                                border pixel 0
 
 # handle Slack calls
 for_window [title="^Slack \| Slack call with.*$"]       floating enable
@@ -297,7 +296,7 @@ client.background                         #ffffff
 # exec --no-startup-id                      pa-applet
 
 # Start compositor
-exec_always --no-startup-id               killall picom;  picom -b -c
+exec_always --no-startup-id               killall picom;  picom --experimental-backends -b -c
 
 # Restore background
 exec --no-startup-id                      nitrogen --restore
