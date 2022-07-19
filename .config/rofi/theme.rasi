@@ -8,6 +8,7 @@
 	background-color: @backgroundColor;
 
 	font: "Source Code Pro 12";
+  text-color: white;
 }
 
 window {
@@ -20,8 +21,6 @@ mainbox {
 	spacing: 30px;
 	/*margin: 20%;*/
 	padding: 30px 0;
-	border: 1px;
-	border-color: @borderColor;
 }
 
 inputbar {

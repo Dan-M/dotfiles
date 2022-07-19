@@ -16,7 +16,7 @@ focus_follows_mouse                       no
 # e.g. if a link is clicked in another application
 focus_on_window_activation                focus
 
-font                                      pangomonospace, 8
+font                                      pango:Source Code Pro, 8
 
 # Define Gaps
 gaps outer                                5
@@ -205,7 +205,7 @@ bindsym $alt+Pause                        mode "$mode_system"
 assign [class="^Slack$"]                                9
 assign [class="^Mailspring$"]                           9
 
-for_window [class="^.*"]                                border pixel 1
+for_window [class="^.*"]                                border pixel 0
 
 # handle Slack calls
 for_window [title="^Slack \| Slack call with.*$"]       floating enable
@@ -222,18 +222,13 @@ for_window [class="(?i)pinentry-gtk-2"]                 focus
 # Sticky firefox picture in picture
 for_window [title="^Picture-in-Picture$"]               sticky enable
 
-for_window [class="Nitrogen"]                           floating enable border normal
-for_window [class="(?i)pavucontrol"]                    floating enable border normal
-for_window [class="(?i)blueman-manager"]                floating enable border normal
-for_window [class="(?i)lxappearance"]                   floating enable border normal
+for_window [class="Nitrogen"]                           floating enable
+for_window [class="(?i)pavucontrol"]                    floating enable
 for_window [class="Manjaro Settings Manager"]           floating enable border normal resize set 640 440
-for_window [class="Steam"]                              floating enable border normal
+for_window [class="Steam"]                              floating enable
 
 # terminals with title starting with cp_ terminal
 for_window [title="^cp_.*$"]                            move container to workspace 10
-
-# note taking
-for_window [title="neuron_zettel"]                      floating enable sticky enable
 
 # #################################################################
 # The bar
@@ -301,7 +296,7 @@ client.background                         #ffffff
 # exec --no-startup-id                      pa-applet
 
 # Start compositor
-exec_always --no-startup-id               killall picom;  picom -b -c
+exec_always --no-startup-id               killall picom;  picom --experimental-backends -b -c
 
 # Restore background
 exec --no-startup-id                      nitrogen --restore
