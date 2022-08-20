@@ -5,7 +5,7 @@ lvim.colorscheme = 'onedarker'
 
 -- Feature flags
 lvim.builtin.fancy_statusline = { active = false } -- enable/disable fancy statusline
-lvim.builtin.copilot = { active = true } -- enable/disable github copilot
+lvim.builtin.copilot = { active = false } -- enable/disable github copilot
 -- key maps
 require('user.keys').config()
 
@@ -88,13 +88,6 @@ lvim.plugins = {
     end,
   },
   { 'morhetz/gruvbox' },
-  {
-    'scalameta/nvim-metals',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      require('user.metals').config()
-    end,
-  },
   { 'mfussenegger/nvim-jdtls' },
   {
     'ruifm/gitlinker.nvim',
@@ -104,6 +97,3 @@ lvim.plugins = {
   },
 }
 
-lvim.autocommands.custom_groups = {
-  { "FileType", "scala,sbt", "lua require('user.metals').config()" }
-}

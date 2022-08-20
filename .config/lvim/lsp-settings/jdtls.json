@@ -13,6 +13,9 @@
   "java.import.maven.enabled": true,
   "java.maven.downloadSources": true,
   "java.progressReports.enabled": true,
-  "java.showBuildStatusOnStart.enabled": "notification"
+  "java.showBuildStatusOnStart.enabled": "notification",
+  "java.codeGeneration.toString.codeStyle": "STRING_BUILDER_CHAINED",
+  "java.codeGeneration.useBlocks": true,
+  "java.eclipse.downloadSources": true
 }
 
