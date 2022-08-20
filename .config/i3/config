@@ -146,6 +146,10 @@ bindsym $mod+Shift+8                      move container to workspace number $ws
 bindsym $mod+Shift+9                      move container to workspace number $ws9
 bindsym $mod+Shift+0                      move container to workspace number $ws10
 
+# move workspaces
+bindsym $mod+Ctrl+less                    move workspace to output left 
+bindsym $mod+Ctrl+greater                 move workspace to output right
+
 # Scratchpad - to re-tile a scratchpad window use toggle float (mod+shift+spacebar)
 bindsym $mod+x                            scratchpad show
 bindsym $mod+shift+x                      move scratchpad
