@@ -60,21 +60,21 @@ lvim.plugins = {
     run = './install.sh',
     requires = 'hrsh7th/nvim-cmp',
   },
-  {
-    'github/copilot.vim',
-    config = function()
-      vim.g.copilot_no_tab_map = true
-      vim.g.copilot_assume_mapped = true
-      vim.g.copilot_tab_fallback = ''
-      vim.g.copilot_filetypes = {
-        ['*'] = true,
-        markdown = false,
-        dart = false,
-        gitcommit = false,
-        NeogitCommitMessage = false,
-      }
-    end,
-  },
+  -- {
+  --   'github/copilot.vim',
+  --   config = function()
+  --     vim.g.copilot_no_tab_map = true
+  --     vim.g.copilot_assume_mapped = true
+  --     vim.g.copilot_tab_fallback = ''
+  --     vim.g.copilot_filetypes = {
+  --       ['*'] = true,
+  --       markdown = false,
+  --       dart = false,
+  --       gitcommit = false,
+  --       NeogitCommitMessage = false,
+  --     }
+  --   end,
+  -- },
   { 'f-person/git-blame.nvim' },
   { 'ChristianChiarulli/nvim-ts-rainbow' },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
@@ -95,5 +95,20 @@ lvim.plugins = {
       require('user.gitlinker').config()
     end,
   },
+  {
+    'MunifTanjim/nui.nvim',
+  },
+  {
+    'vuki656/package-info.nvim',
+    requires = 'MunifTanjim/nui.nvim',
+    event = "BufRead package.json",
+    config = function()
+      require("package-info").setup({
+        colors = {
+            up_to_date = "#98c379",
+            outdated = "#F05F4E",
+        },
+      })
+    end
+  },
 }
-
