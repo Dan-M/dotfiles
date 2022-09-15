@@ -53,10 +53,10 @@ bindsym $mod+Return                       exec --no-startup-id alacritty
 bindsym $alt+Return                       exec --no-startup-id alacritty
 
 # ...or any other app using rofi:
-bindsym $mod+Shift+Return                 exec --no-startup-id "rofi -modi drun,window,filebrowser -show drun -theme ~/.config/rofi/theme.rasi"
+bindsym $mod+Shift+Return                 exec --no-startup-id "rofi -show drun"
 
 # mod tab for app switching:
-bindsym $mod+Tab                          exec --no-startup-id "rofi -modi window,drun,filebrowser -show window -theme ~/.config/rofi/theme.rasi"
+bindsym $mod+Tab                          exec --no-startup-id "rofi -show window"
 
 bindsym $mod+Shift+p                      exec --no-startup-id "rofi-rbw"
 
