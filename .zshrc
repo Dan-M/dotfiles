@@ -160,6 +160,7 @@ export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansiblevault
 export JDK_HOME=/usr/lib/jvm/default/
 export PAGER=nvimpager
 export MANPAGER=nvimpager
+export JAVA_HOME=/usr/lib/jvm/default/
 
 export GPG_TTY=$(tty)
 
