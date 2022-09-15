@@ -1,6 +1,6 @@
 -- vim: ft=lua tw=80
 
-stds.nvim = {
+std.nvim = {
   globals = {
     "lvim",
     vim = { fields = { "g" } },

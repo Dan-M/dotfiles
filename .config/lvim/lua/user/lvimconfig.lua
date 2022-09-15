@@ -4,7 +4,7 @@ M.config = function()
   lvim.builtin.alpha.active = true
   lvim.builtin.terminal.active = true
   lvim.builtin.nvimtree.side = "left"
-  lvim.builtin.nvimtree.show_icons.git = 0
+--  lvim.builtin.nvimtree.show_icons.git = 0
 
   lvim.builtin.treesitter.ensure_installed = "all"
   lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -25,6 +25,7 @@ M.config = function()
     "%.lock",
     "%.ipynb",
     "node_modules/*",
+    "target/*",
     "%.jpg",
     "%.jpeg",
     "%.png",
@@ -40,6 +41,12 @@ M.config = function()
     "node_modules/",
     "target/",
   }
+
+  lvim.builtin.telescope.on_config_done = function(telescope)
+    pcall(telescope.load_extension, "howdoi")
+    pcall(telescope.load_extension, "gh")
+    -- any other extensions loading
+  end
 end
 
 local coreCmp = require("lvim.core.cmp")

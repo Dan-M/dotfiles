@@ -25,6 +25,7 @@ M.config = function()
     name = "Octo Github",
     p = { "<cmd>Octo pr list<cr>", "List PRs" },
     i = { "<cmd>Octo issue list <cr>", "List Issues" },
+    rs = { "<cmd>Octo review start<cr>", "Start review" },
   }
 
 end
