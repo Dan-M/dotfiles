@@ -21,7 +21,7 @@ require('user.opts').config()
 lvim.plugins = {
   {
     'folke/trouble.nvim',
---    cmd = 'TroubleToggle',
+    --    cmd = 'TroubleToggle',
   },
   {
     'phaazon/hop.nvim',
@@ -60,23 +60,10 @@ lvim.plugins = {
     run = './install.sh',
     requires = 'hrsh7th/nvim-cmp',
   },
-  -- {
-  --   'github/copilot.vim',
-  --   config = function()
-  --     vim.g.copilot_no_tab_map = true
-  --     vim.g.copilot_assume_mapped = true
-  --     vim.g.copilot_tab_fallback = ''
-  --     vim.g.copilot_filetypes = {
-  --       ['*'] = true,
-  --       markdown = false,
-  --       dart = false,
-  --       gitcommit = false,
-  --       NeogitCommitMessage = false,
-  --     }
-  --   end,
-  -- },
   { 'f-person/git-blame.nvim' },
-  { 'ChristianChiarulli/nvim-ts-rainbow' },
+  {
+    'p00f/nvim-ts-rainbow',
+  },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
   { 'ellisonleao/glow.nvim' },
   { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' },
@@ -88,13 +75,7 @@ lvim.plugins = {
     end,
   },
   { 'morhetz/gruvbox' },
-  -- {
-  --   'scalameta/nvim-metals',
-  --   requires = 'nvim-lua/plenary.nvim',
-  --   config = function()
-  --     require('user.metals').config()
-  --   end,
-  -- },
+
   { 'mfussenegger/nvim-jdtls' },
   {
     'ruifm/gitlinker.nvim',
@@ -138,5 +119,22 @@ lvim.plugins = {
       }
     end,
   },
+  {
+    'karb94/neoscroll.nvim',
+    event = 'WinScrolled',
+    config = function()
+      require('neoscroll').setup {
+        -- All these keys will be mapped to their corresponding default scrolling animation
+        mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
+        hide_cursor = true, -- Hide cursor while scrolling
+        stop_eof = true, -- Stop at <EOF> when scrolling downwards
+        use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+        respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+        cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+        easing_function = nil, -- Default easing function
+        pre_hook = nil, -- Function to run before the scrolling animation starts
+        post_hook = nil, -- Function to run after the scrolling animation ends
+      }
+    end,
+  },
 }
-

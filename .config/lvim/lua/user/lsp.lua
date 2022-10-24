@@ -26,14 +26,14 @@ M.config = function()
     },
   }
 
-  vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { 'jdtls' })
-  local opts = {
-    -- use only .git as root to have the whole mvn hierarchy in one LSP server
-    root_dir = function(fname)
-      return require('lspconfig').util.root_pattern '.git'(fname)
-    end,
-  }
-  require('lvim.lsp.manager').setup('jdtls', opts)
+  -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { 'jdtls' })
+  -- local opts = {
+  --   -- use only .git as root to have the whole mvn hierarchy in one LSP server
+  --   root_dir = function(fname)
+  --     return require('lspconfig').util.root_pattern '.git'(fname)
+  --   end,
+  -- }
+  -- require('lvim.lsp.manager').setup('jdtls', opts)
 
 end
 return M
