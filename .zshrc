@@ -12,7 +12,7 @@ export ZSH="/home/dan/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -80,7 +80,6 @@ plugins=(git
         docker-compose
         history-substring-search
         zsh-autosuggestions
-        zsh-syntax-highlighting
         yarn
         sbt
         scala
@@ -185,9 +184,8 @@ eval "$(direnv hook zsh)"
 bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH=$HOME/.config/nvcode/utils/bin:$PATH
-export PATH=$HOME/.npm/bin:$PATH
 export PATH="$PATH:/home/dan/.local/share/coursier/bin"
+export PATH="$PATH:/home/dan/.local/bin"
 
 # FZF & fd to navigate
 export FZF_DEFAULT_COMMAND="fd . $HOME"
@@ -198,3 +196,16 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 source $HOME/.config/broot/launcher/bash/br
 
 if [ -e /home/dan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/dan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+source /home/dan/.oh-my-zsh/custom/themes/powerlevel10/powerlevel10k.zsh-theme
+
+source /home/dan/.config/broot/launcher/bash/br
+
+# setup fnm
+export PATH="/run/user/1000/fnm_multishells/10845_1666344999523/bin":$PATH
+export FNM_MULTISHELL_PATH="/run/user/1000/fnm_multishells/10845_1666344999523"
+export FNM_VERSION_FILE_STRATEGY="local"
+export FNM_DIR="/home/dan/.local/share/fnm"
+export FNM_LOGLEVEL="info"
+export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
+export FNM_ARCH="x64"
+rehash

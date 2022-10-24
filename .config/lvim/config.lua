@@ -21,7 +21,7 @@ require('user.opts').config()
 lvim.plugins = {
   {
     'folke/trouble.nvim',
-    cmd = 'TroubleToggle',
+--    cmd = 'TroubleToggle',
   },
   {
     'phaazon/hop.nvim',
@@ -88,13 +88,13 @@ lvim.plugins = {
     end,
   },
   { 'morhetz/gruvbox' },
-  {
-    'scalameta/nvim-metals',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      require('user.metals').config()
-    end,
-  },
+  -- {
+  --   'scalameta/nvim-metals',
+  --   requires = 'nvim-lua/plenary.nvim',
+  --   config = function()
+  --     require('user.metals').config()
+  --   end,
+  -- },
   { 'mfussenegger/nvim-jdtls' },
   {
     'ruifm/gitlinker.nvim',

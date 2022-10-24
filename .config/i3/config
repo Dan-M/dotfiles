@@ -69,8 +69,8 @@ bindsym $mod+Shift+Print --release        exec --no-startup-id "i3-scrot -w"
 bindsym Print --release                   exec xfce4-screenshooter
 
 # Browsers:
-bindsym $mod+b                            exec --no-startup-id firefox
-bindsym $mod+Shift+b                      exec --no-startup-id brave
+bindsym $mod+Shift+b                      exec --no-startup-id firefox
+bindsym $mod+b                            exec --no-startup-id brave-nightly
 bindsym $alt+b                            exec --no-startup-id qutebrowser
 
 # File Manager
