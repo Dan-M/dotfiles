@@ -6,6 +6,10 @@ lvim.colorscheme = 'onedarker'
 lvim.builtin.fancy_statusline = { active = false } -- enable/disable fancy statusline
 lvim.builtin.copilot = { active = false } -- enable/disable github copilot
 lvim.builtin.alpha.active = true
+lvim.builtin.project.manual_mode = true
+
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { 'jdtls' })
+
 -- key maps
 require('user.keys').config()
 
