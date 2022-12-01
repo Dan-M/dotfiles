@@ -1,11 +1,14 @@
 -- general
-lvim.log.level = 'warn'
+lvim.log.level = 'info'
 lvim.format_on_save = false
 lvim.colorscheme = 'onedarker'
 
 -- Feature flags
 lvim.builtin.fancy_statusline = { active = false } -- enable/disable fancy statusline
-lvim.builtin.copilot = { active = false } -- enable/disable github copilot
+-- lvim.builtin.alpha = { active = false }
+
+lvim.builtin.project.manual_mode = true
+
 -- key maps
 require('user.keys').config()
 
@@ -13,6 +16,8 @@ require('user.keys').config()
 require('user.lvimconfig').config()
 
 -- LSP
+-- excluded servers:
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 require('user.lsp').config()
 
 -- Neovim options
@@ -47,34 +52,7 @@ lvim.plugins = {
       require('user.octo').config()
     end,
   },
-  {
-    'tzachar/cmp-tabnine',
-    config = function()
-      local tabnine = require 'cmp_tabnine.config'
-      tabnine:setup {
-        max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
-      }
-    end,
-    run = './install.sh',
-    requires = 'hrsh7th/nvim-cmp',
-  },
-  -- {
-  --   'github/copilot.vim',
-  --   config = function()
-  --     vim.g.copilot_no_tab_map = true
-  --     vim.g.copilot_assume_mapped = true
-  --     vim.g.copilot_tab_fallback = ''
-  --     vim.g.copilot_filetypes = {
-  --       ['*'] = true,
-  --       markdown = false,
-  --       dart = false,
-  --       gitcommit = false,
-  --       NeogitCommitMessage = false,
-  --     }
-  --   end,
-  -- },
+
   { 'f-person/git-blame.nvim' },
   { 'ChristianChiarulli/nvim-ts-rainbow' },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
@@ -110,5 +88,12 @@ lvim.plugins = {
         },
       })
     end
+  },
+  {
+    'ThePrimeagen/harpoon'
+  },
+  {
+    -- telescope extension
+    'zane-/howdoi.nvim',
   },
 }

@@ -1,7 +1,6 @@
 [user]
 	name = Dan Maffiew
 	email = dmaffiew@gmail.com
-	signingkey = 841DDB39932A0880
 [credential "https://github.com"]
 	username = Dan-M
 [filter "lfs"]
