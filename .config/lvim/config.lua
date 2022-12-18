@@ -7,8 +7,8 @@ lvim.colorscheme = 'onedarker'
 lvim.builtin.fancy_statusline = { active = false } -- enable/disable fancy statusline
 -- lvim.builtin.alpha = { active = false }
 
+-- need this for hierarchical maven projects
 lvim.builtin.project.manual_mode = true
-
 -- key maps
 require('user.keys').config()
 
@@ -23,6 +23,7 @@ require('user.lsp').config()
 -- Neovim options
 require('user.opts').config()
 
+-- plugins
 lvim.plugins = {
   {
     'folke/trouble.nvim',
@@ -95,5 +96,8 @@ lvim.plugins = {
   {
     -- telescope extension
     'zane-/howdoi.nvim',
+  },
+  {
+    'aduros/ai.vim',
   },
 }

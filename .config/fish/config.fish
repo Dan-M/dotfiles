@@ -5,17 +5,17 @@ if status is-interactive
 end
 
 # Colors
-set -l teal 94e2d5
-set -l flamingo f2cdcd
-set -l mauve cba6f7
-set -l pink f5c2e7
-set -l red f38ba8
-set -l peach fab387
-set -l green a6e3a1
-set -l yellow f9e2af
-set -l blue 89b4fa
-set -l gray 1f1d2e
-set -l black 191724
+# set -l teal 94e2d5
+# set -l flamingo f2cdcd
+# set -l mauve cba6f7
+# set -l pink f5c2e7
+# set -l red f38ba8
+# set -l peach fab387
+# set -l green a6e3a1
+# set -l yellow f9e2af
+# set -l blue 89b4fa
+# set -l gray 1f1d2e
+# set -l black 191724
     
 # Completion Pager Colors
 set -g fish_pager_color_progress $gray
@@ -57,6 +57,7 @@ export LC_ALL="en_US.UTF-8"
 export VISUAL="lvim"
 export EDITOR="$VISUAL"
 
+export OPENAI_API_KEY="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"
 # Term
 switch "$TERM_EMULATOR"
 case '*kitty*'
@@ -66,19 +67,10 @@ case '*'
 end
 
 # Abbrevations
-abbr -a -g l 'ls'
-abbr -a -g la 'ls -a'
-abbr -a -g ll 'ls -l'
-abbr -a -g lal 'ls -al'
 abbr -a -g d 'dirs'
-abbr -a -g h 'cd $HOME'
 abbr -a -g c 'clear'																								# Clear
 abbr -a -g h 'history'																							# Show history
 abbr -a -g upd 'paru -Syu --noconfirm'															# Update everything
-abbr -a -g please 'sudo'																						# Polite way to sudo
-abbr -a -g fucking 'sudo'																						# Rude way to sudo
-abbr -a -g sayonara 'shutdown now'																	# Epic way to shutdown
-abbr -a -g stahp 'shutdown now'																		  # Panik - stonk man
 abbr -a -g untar 'tar -zxvf'																				# Untar
 abbr -a -g genpass 'openssl rand -base64 20'												# Generate a random, 20-charactered password
 abbr -a -g sha 'shasum -a 256'																			# Test checksum
@@ -87,6 +79,33 @@ abbr -a -g ipe 'curl ifconfig.co'																		# Get external IP address
 abbr -a -g ips 'ip link show'																				# Get network interfaces information
 abbr -a -g wloff 'rfkill block wlan'																# Block wlan, killing wifi connection
 abbr -a -g wlon 'rfkill unblock wlan'																# Unblock wlan, start wifi connection
+
+abbr -a -g ls 'exa -al --color=always --group-directories-first'
+abbr -a -g la 'exa -a --color=always --group-directories-first'  # all files and dirs
+abbr -a -g ll 'exa -l --color=always --group-directories-first'  # long format
+abbr -a -g lt 'exa -aT --color=always --group-directories-first' # tree listing
+
+# start vlc using the web cam
+abbr -a -g vlcme 'cvlc v4l2:// :input-slave=alsa:// :v4l-vdev="/dev/video0"'
+abbr -a -g vi 'lvim'
+abbr -a -g vim 'lvim'
+
+abbr -a -g colorselect 'gcolor2'
+abbr -a -g print-key "xev -event keyboard | egrep -o 'keycode.*\)'"
+
+abbr -a -g df 'df -h'                          # human-readable sizes
+abbr -a -g free 'free -m'                      # show sizes in MB
+
+abbr -a -g cpgl "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# broot
+abbr -a -g br 'broot -dhp'
+abbr -a -g bs 'broot --sizes'
+
+abbr -a -g cpcurl 'curl -H "Content-Type: application/json" -H "cp-axa-user-id: CP-ADMIN-USER" -H "cp-axa-user-role: ADMIN" '
+
+abbr -a -g dotfiles "/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+
 
 # Source plugins
 # Useful plugins: archlinux bang-bang cd colorman sudope vcs
@@ -99,6 +118,5 @@ function su
    command su --shell=/usr/bin/fish $argv
 end
 
-alias bat='bat --theme="gruvbox-dark"'
-
 set PATH $PATH /home/dan/.local/bin
+
