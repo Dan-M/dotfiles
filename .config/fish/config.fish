@@ -57,7 +57,8 @@ export LC_ALL="en_US.UTF-8"
 export VISUAL="lvim"
 export EDITOR="$VISUAL"
 
-export OPENAI_API_KEY="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"
+export OPENAI_API_KEY="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"
+
 # Term
 switch "$TERM_EMULATOR"
 case '*kitty*'
