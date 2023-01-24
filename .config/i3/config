@@ -234,39 +234,40 @@ for_window [title="^cp_.*$"]                            move container to worksp
 # The bar
 # #################################################################
 
-bar {
-    status_command bumblebee-status \
-        -m  \
-            mpd \
-            cpu2 spacer spacer \
-            memory spacer spacer \
-            traffic spacer spacer \
-            pacman spacer spacer \
-            http_status spacer spacer \
-            kernel \
-            datetime spacer \
-        -p \
-            cpu2.temp_pattern=temp1_input cpu2.fan_pattern=fan2_input \
-            http_status.target=http://www.4-ti.com http_status.label=4-ti.com http_status.expect=200 \
-            traffic.exclude=br-f4b7e783c7db,lo,virbr,docker,vboxnet,veth,br-2e72c3bdf842 traffic.graphlen=8 \
-        -t firefox-dark-powerline
+# bar {
+#     status_command bumblebee-status \
+#         -m  \
+#             mpd \
+#             cpu2 spacer spacer \
+#             memory spacer spacer \
+#             traffic spacer spacer \
+#             pacman spacer spacer \
+#             http_status spacer spacer \
+#             kernel \
+#             datetime spacer \
+#         -p \
+#             cpu2.temp_pattern=temp1_input cpu2.fan_pattern=fan2_input \
+#             http_status.target=http://www.4-ti.com http_status.label=4-ti.com http_status.expect=200 \
+#             traffic.exclude=br-f4b7e783c7db,lo,virbr,docker,vboxnet,veth,br-2e72c3bdf842 traffic.graphlen=8 \
+#         -t firefox-dark-powerline
 
-    position                              top
-    mode                                  hide
-    hidden_state                          hide
-    modifier                              $mod
-    tray_output                           none
-    colors {
-      background                          #151515
-      statusline                          #F8F8F2
-      separator                           #FFB647
-      focused_workspace                   #FFB647 #FFB647 #F8F8F2
-      active_workspace                    #282A36 #44475A #F8F8F2
-      inactive_workspace                  #282A36 #282A36 #BFBFBF
-      urgent_workspace                    #900000 #900000 #F8F8F2
-      binding_mode                        #D72638 #D72638 #F8F8F2
-    }
-}
+#     position                              top
+#     mode                                  hide
+#     hidden_state                          hide
+#     modifier                              $mod
+#     tray_output                           none
+#     colors {
+#       background                          #151515
+#       statusline                          #F8F8F2
+#       separator                           #FFB647
+#       focused_workspace                   #FFB647 #FFB647 #F8F8F2
+#       active_workspace                    #282A36 #44475A #F8F8F2
+#       inactive_workspace                  #282A36 #282A36 #BFBFBF
+#       urgent_workspace                    #900000 #900000 #F8F8F2
+#       binding_mode                        #D72638 #D72638 #F8F8F2
+#     }
+# }
+
 
 # #################################################################
 # Colors
@@ -283,21 +284,11 @@ client.background                         #ffffff
 # Start when i3 starts...
 # #################################################################
 
-# Lock
-# exec --no-startup-id                      xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager
-# exec --no-startup-id                      nm-applet
-
-# Blue-man for bluetooth
-# exec --no-startup-id                      blueman-applet
-
-# Volume control
-# exec --no-startup-id                      pa-applet
-
 # Start compositor
 exec_always --no-startup-id               killall picom;  picom --experimental-backends -b -c
 
 # Restore background
 exec --no-startup-id                      nitrogen --restore
 
+# Run Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh --cuts
