@@ -111,10 +111,10 @@ bindsym $mod+w                            layout tabbed
 bindsym $mod+e                            layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space                  floating toggle
+bindsym $mod+space                  floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space                        focus mode_toggle
+bindsym $mod+Shift+space                  focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a                            focus parent
@@ -150,7 +150,7 @@ bindsym $mod+Shift+0                      move container to workspace number $ws
 bindsym $mod+Ctrl+less                    move workspace to output left 
 bindsym $mod+Ctrl+greater                 move workspace to output right
 
-# Scratchpad - to re-tile a scratchpad window use toggle float (mod+shift+spacebar)
+# Scratchpad - to re-tile a scratchpad window use toggle float (mod+spacebar)
 bindsym $mod+x                            scratchpad show
 bindsym $mod+shift+x                      move scratchpad
 

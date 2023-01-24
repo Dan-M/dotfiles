@@ -42,10 +42,10 @@ lvim.plugins = {
       require('user.colorizer').config()
     end,
   },
-  {
-    'simrat39/symbols-outline.nvim',
-    cmd = 'SymbolsOutline',
-  },
+  -- {
+  --   'simrat39/symbols-outline.nvim',
+  --   cmd = 'SymbolsOutline',
+  -- },
   {
     'pwntester/octo.nvim',
     event = 'BufRead',
@@ -58,7 +58,7 @@ lvim.plugins = {
   { 'ChristianChiarulli/nvim-ts-rainbow' },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
   { 'ellisonleao/glow.nvim' },
-  { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' },
+  { 'TimUntersberger/neogit', dependencies = 'nvim-lua/plenary.nvim' },
   {
     'vim-test/vim-test',
     cmd = { 'TestNearest', 'TestFile', 'TestSuite', 'TestLast', 'TestVisit' },
@@ -79,7 +79,7 @@ lvim.plugins = {
   },
   {
     'vuki656/package-info.nvim',
-    requires = 'MunifTanjim/nui.nvim',
+    dependencies = 'MunifTanjim/nui.nvim',
     event = "BufRead package.json",
     config = function()
       require("package-info").setup({
