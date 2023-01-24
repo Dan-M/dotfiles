@@ -1,7 +1,7 @@
 -- general
 lvim.log.level = 'warn'
 lvim.format_on_save = false
-lvim.colorscheme = 'onedarker'
+lvim.colorscheme = 'tokyonight'
 -- Feature flags
 lvim.builtin.fancy_statusline = { active = false } -- enable/disable fancy statusline
 lvim.builtin.copilot = { active = false } -- enable/disable github copilot
@@ -61,8 +61,8 @@ lvim.plugins = {
         sort = true,
       }
     end,
-    run = './install.sh',
-    requires = 'hrsh7th/nvim-cmp',
+    build = './install.sh',
+    dependencies = 'hrsh7th/nvim-cmp',
   },
   { 'f-person/git-blame.nvim' },
   {
@@ -70,7 +70,7 @@ lvim.plugins = {
   },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
   { 'ellisonleao/glow.nvim' },
-  { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' },
+  { 'TimUntersberger/neogit', dependencies = 'nvim-lua/plenary.nvim' },
   {
     'vim-test/vim-test',
     cmd = { 'TestNearest', 'TestFile', 'TestSuite', 'TestLast', 'TestVisit' },
@@ -91,7 +91,7 @@ lvim.plugins = {
   -- https://github.com/vuki656/package-info.nvim/issues/127
   {
     'vuki656/package-info.nvim',
-    requires = 'MunifTanjim/nui.nvim',
+    dependencies = 'MunifTanjim/nui.nvim',
     event = 'BufRead package.json',
     config = function()
       require('package-info').setup {
