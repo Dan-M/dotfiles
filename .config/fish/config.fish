@@ -16,7 +16,7 @@ end
 # set -l blue 89b4fa
 # set -l gray 1f1d2e
 # set -l black 191724
-    
+
 # Completion Pager Colors
 set -g fish_pager_color_progress $gray
 set -g fish_pager_color_prefix $mauve
@@ -56,6 +56,8 @@ export LC_ALL="en_US.UTF-8"
 # Exports
 export VISUAL="lvim"
 export EDITOR="$VISUAL"
+
+export OPENAI_API_KEY="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"
 
 # Term
 switch "$TERM_EMULATOR"
@@ -103,6 +105,7 @@ abbr -a -g bs 'broot --sizes'
 
 abbr -a -g cpcurl 'curl -H "Content-Type: application/json" -H "cp-axa-user-id: CP-ADMIN-USER" -H "cp-axa-user-role: ADMIN" '
 
+abbr -a -g dotfiles "/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
 
 # Source plugins
@@ -111,17 +114,10 @@ if test -d "$HOME/.local/share/omf/pkg/colorman/"
 	source ~/.local/share/omf/pkg/colorman/init.fish
 end
 
-if test -d "$HOME/.local/share/omf/pkg/pj/"
-  set -gx PROJECT_PATHS ~/github/Dan-M ~/github/axa-health ~/github/4-ti
-  abbr -a pjo pj open
-end
-
 # Make su launch fish
 function su
    command su --shell=/usr/bin/fish $argv
 end
 
-# Aliases
-
-
 set PATH $PATH /home/dan/.local/bin
+
