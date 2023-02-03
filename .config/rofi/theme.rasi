@@ -1,8 +1,8 @@
 * {
-  backgroundColor: #282828;
+  backgroundColor: #1F1626;
 	buttonBgColor: #44475A;
 	buttonTextColor: #F8F8F2;
-	borderColor: #D72638;
+	borderColor: #8e24aa;
 
 	spacing: 0;
 	background-color: @backgroundColor;
