@@ -17,7 +17,7 @@ M.config = function()
     foldclose = "▸",
   }
 
-  vim.wo.foldmethod = "expr"
+  vim.wo.foldmethod = "indent"
   vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
   vim.wo.foldlevel = 4
   vim.wo.foldtext =
