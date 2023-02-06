@@ -11,6 +11,12 @@ M.config = function()
   lvim.keys.normal_mode["bo"] = ":BufferCloseAllButCurrent<CR>"
   lvim.keys.normal_mode["tf"] = ":TestFile<CR>"
 
+  -- move blocks
+  -- vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
+  -- vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
+  lvim.keys.visual_mode["J"] = ":move '>+1<CR>gv-gv"
+  lvim.keys.visual_mode["K"] = ":move '<-2<CR>gv-gv"
+
   -- Which keys
   lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
   lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
