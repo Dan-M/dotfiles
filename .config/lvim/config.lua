@@ -37,6 +37,9 @@ lvim.plugins = {
   {
     'simrat39/symbols-outline.nvim',
     cmd = 'SymbolsOutline',
+    config = function()
+      require('symbols-outline').setup()
+    end
   },
   {
     'norcalli/nvim-colorizer.lua',
@@ -109,21 +112,6 @@ lvim.plugins = {
     'zane-/howdoi.nvim',
   },
   {
-    'booperlv/nvim-gomove',
-    config = function()
-      require('gomove').setup {
-        -- whether or not to map default key bindings, (true/false)
-        map_defaults = true,
-        -- whether or not to reindent lines moved vertically (true/false)
-        reindent = true,
-        -- whether or not to undojoin same direction moves (true/false)
-        undojoin = true,
-        -- whether to not to move past end column when moving blocks horizontally, (true/false)
-        move_past_end_col = false,
-      }
-    end,
-  },
-  {
     'karb94/neoscroll.nvim',
     event = 'WinScrolled',
     config = function()
@@ -141,4 +129,41 @@ lvim.plugins = {
       }
     end,
   },
+  {
+    'chentoast/marks.nvim',
+    config = function()
+      require('marks').setup{
+        -- whether to map keybinds or not. default true
+        default_mappings = true,
+        -- which builtin marks to show. default {}
+        builtin_marks = { ".", "<", ">", "^" },
+        -- whether movements cycle back to the beginning/end of buffer. default true
+        cyclic = true,
+        -- whether the shada file is updated after modifying uppercase marks. default false
+        force_write_shada = false,
+        -- how often (in ms) to redraw signs/recompute mark positions. 
+        -- higher values will have better performance but may cause visual lag, 
+        -- while lower values may cause performance penalties. default 150.
+        refresh_interval = 250,
+        -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
+        -- marks, and bookmarks.
+        -- can be either a table with all/none of the keys, or a single number, in which case
+        -- the priority applies to all marks.
+        -- default 10.
+        sign_priority = { lower=10, upper=15, builtin=8, bookmark=20 },
+        -- disables mark tracking for specific filetypes. default {}
+        excluded_filetypes = {},
+        -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
+        -- sign/virttext. Bookmarks can be used to group together positions and quickly move
+        -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
+        -- default virt_text is "".
+        bookmark_0 = {
+          sign = "⚑",
+          -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
+          -- defaults to false.
+          annotate = true,
+        },
+      }
+  end,
+  }
 }
