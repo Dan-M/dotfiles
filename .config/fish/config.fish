@@ -55,10 +55,8 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Exports
-export VISUAL="lvim"
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
-
-export OPENAI_API_KEY="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"
 
 # Term
 switch "$TERM_EMULATOR"
@@ -70,17 +68,17 @@ end
 
 # Abbrevations
 abbr -a -g d 'dirs'
-abbr -a -g c 'clear'																								# Clear
-abbr -a -g h 'history'																							# Show history
-abbr -a -g upd 'paru -Syu --noconfirm'															# Update everything
-abbr -a -g untar 'tar -zxvf'																				# Untar
-abbr -a -g genpass 'openssl rand -base64 20'												# Generate a random, 20-charactered password
-abbr -a -g sha 'shasum -a 256'																			# Test checksum
-abbr -a -g cn 'ping -c 5 8.8.8.8'																		# Ping google, checking network
-abbr -a -g ipe 'curl ifconfig.co'																		# Get external IP address
-abbr -a -g ips 'ip link show'																				# Get network interfaces information
-abbr -a -g wloff 'rfkill block wlan'																# Block wlan, killing wifi connection
-abbr -a -g wlon 'rfkill unblock wlan'																# Unblock wlan, start wifi connection
+abbr -a -g c 'clear'
+abbr -a -g h 'history'
+abbr -a -g upd 'paru -Syu --noconfirm'
+abbr -a -g untar 'tar -zxvf'
+abbr -a -g genpass 'openssl rand -base64 20'
+abbr -a -g sha 'shasum -a 256'
+abbr -a -g cn 'ping -c 5 8.8.8.8'
+abbr -a -g ipe 'curl ifconfig.co'
+abbr -a -g ips 'ip link show'
+abbr -a -g wloff 'rfkill block wlan'
+abbr -a -g wlon 'rfkill unblock wlan'
 
 abbr -a -g ls 'exa -al --color=always --group-directories-first'
 abbr -a -g la 'exa -a --color=always --group-directories-first'  # all files and dirs
@@ -89,8 +87,8 @@ abbr -a -g lt 'exa -aT --color=always --group-directories-first' # tree listing
 
 # start vlc using the web cam
 abbr -a -g vlcme 'cvlc v4l2:// :input-slave=alsa:// :v4l-vdev="/dev/video0"'
-abbr -a -g vi 'lvim'
-abbr -a -g vim 'lvim'
+abbr -a -g vi 'nvim'
+abbr -a -g vim 'nvim'
 
 abbr -a -g colorselect 'gcolor2'
 abbr -a -g print-key "xev -event keyboard | egrep -o 'keycode.*\)'"
