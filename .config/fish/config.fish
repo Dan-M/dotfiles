@@ -55,10 +55,8 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Exports
-export VISUAL="lvim"
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
-
-export OPENAI_API_KEY="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"
 
 # Term
 switch "$TERM_EMULATOR"
@@ -89,8 +87,8 @@ abbr -a -g lt 'exa -aT --color=always --group-directories-first' # tree listing
 
 # start vlc using the web cam
 abbr -a -g vlcme 'cvlc v4l2:// :input-slave=alsa:// :v4l-vdev="/dev/video0"'
-abbr -a -g vi 'lvim'
-abbr -a -g vim 'lvim'
+abbr -a -g vi 'nvim'
+abbr -a -g vim 'nvim'
 
 abbr -a -g colorselect 'gcolor2'
 abbr -a -g print-key "xev -event keyboard | egrep -o 'keycode.*\)'"
