@@ -1,4 +1,11 @@
 return {
+
+  -- no need for a dashboard
+  {
+    "goolord/alpha-nvim",
+    enabled = false,
+  },
+
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
