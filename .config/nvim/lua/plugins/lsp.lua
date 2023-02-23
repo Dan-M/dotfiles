@@ -45,13 +45,12 @@ return {
       local nls = require("null-ls")
 
       local function is_file(path)
-        local uv = vim.loop
         local cwd = vim.fn.getcwd()
-        local stat = uv.fs_stat(cwd .. path)
+        local stat = vim.loop.fs_stat(cwd .. path)
         return stat and stat.type == "file" or false
       end
       local function is_eslint_configured()
-        return is_file("/.eslintrc")
+        return is_file("/.eslintrc.json")
       end
       local function is_prettier_configured()
         return is_file("/.prettierrc")
@@ -60,8 +59,8 @@ return {
       return {
         sources = {
           -- js / ts
-          nls.builtins.formatting.prettierd, -- .with({ condition = is_prettier_configured }),
-          nls.builtins.diagnostics.eslint_d, -- .with({ condition = is_eslint_configured }),
+          nls.builtins.formatting.prettierd.with({ condition = is_prettier_configured }),
+          nls.builtins.diagnostics.eslint_d.with({ condition = is_eslint_configured }),
           -- Lua
           nls.builtins.formatting.stylua,
           nls.builtins.diagnostics.luacheck,

@@ -55,4 +55,19 @@ return {
       },
     },
   },
+  {
+    "vuki656/package-info.nvim",
+    dependencies = "MunifTanjim/nui.nvim",
+    event = "BufRead package.json",
+    config = function()
+      require("package-info").setup({
+        colors = {
+          up_to_date = "#98c379",
+          outdated = "#F05F4E",
+        },
+        package_manager = "pnpm",
+        autostart = true,
+      })
+    end,
+  },
 }
