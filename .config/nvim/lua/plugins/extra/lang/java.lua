@@ -37,7 +37,7 @@ return {
           local jdtls_pkg = mason_registry.get_package("jdtls")
           local jdtls_path = jdtls_pkg:get_install_path()
           local jdtls_bin = jdtls_path .. "/bin/jdtls"
-
+          local lombok_path = jdtls_path .. "/lombok.jar"
           local java_test_pkg = mason_registry.get_package("java-test")
           local java_test_path = java_test_pkg:get_install_path()
 
@@ -109,7 +109,14 @@ return {
                   jdtls_bin,
                   "-data",
                   workspace_folder,
-                  "--jvm-arg=-Xms2G",
+                  "--jvm-arg=-javaagent:" .. lombok_path,
+                  "--jvm-arg=-XX:+UseParallelGC",
+                  "--jvm-arg=-XX:GCTimeRatio=4",
+                  "--jvm-arg=-XX:AdaptiveSizePolicyWeight=90",
+                  "--jvm-arg=-Dsun.zip.disableMemoryMapping=true",
+                  "--jvm-arg=-Xmx3G",
+                  "--jvm-arg=-Xms512m",
+                  "--jvm-arg=-Xlog:disable",
                 },
                 settings = {
                   java = {
