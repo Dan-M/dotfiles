@@ -25,6 +25,15 @@ return {
       })
     end,
   },
-
+  -- Disable lsp progress on  noice - because jdtls spams errors
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      lsp = {
+        enabled = false,
+      },
+    },
+  },
   { import = "lazyvim.plugins.extras.ui.mini-animate" },
 }

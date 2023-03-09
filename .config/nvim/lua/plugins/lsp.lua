@@ -23,7 +23,6 @@ return {
         "shfmt",
         "stylua",
         "tailwindcss-language-server",
-        "taplo",
         "typescript-language-server",
         "vim-language-server",
         "yaml-language-server",
@@ -55,7 +54,7 @@ return {
       end
 
       local function is_prettier_configured()
-        return is_file("/.prettierrc")
+        return is_file("/.prettierrc") or is_file("/.prettierrc.json")
       end
 
       return {
