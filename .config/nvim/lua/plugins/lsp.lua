@@ -53,7 +53,7 @@ return {
         return is_file("/.eslintrc.json")
       end
       local function is_prettier_configured()
-        return is_file("/.prettierrc")
+        return is_file("/.prettierrc") or is_file("/.prettierrc.json")
       end
 
       return {
