@@ -1,14 +1,14 @@
 * {
-  backgroundColor: #282828;
+  backgroundColor: #1F1626;
 	buttonBgColor: #44475A;
 	buttonTextColor: #F8F8F2;
-	borderColor: #D72638;
+	borderColor: #8e24aa;
 
 	spacing: 0;
 	background-color: @backgroundColor;
 
-	font: "Source Code Pro 18";
-  text-color: #F8F8F2;
+	font: "Source Code Pro 12";
+  text-color: white;
 }
 
 window {
@@ -21,8 +21,6 @@ mainbox {
 	spacing: 30px;
 	/*margin: 20%;*/
 	padding: 30px 0;
-	border: 1px;
-	border-color: @borderColor;
 }
 
 inputbar {

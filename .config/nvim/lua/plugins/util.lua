@@ -136,4 +136,8 @@ return {
       telescope.load_extension("howdoi")
     end,
   },
+  {
+    "aduros/ai.vim",
+    --config
+  },
 }

@@ -15,7 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -78,19 +79,19 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
-         archlinux
-         colored-man-pages
-         docker
-         docker-compose
-         history-substring-search
-         zsh-interactive-cd
-         dotenv
-         direnv
-         fd
-         fnm
-         mvn
-         node
-         fzf)
+        gh
+        archlinux
+        colored-man-pages
+        docker
+        docker-compose
+        history-substring-search
+        zsh-autosuggestions
+        yarn
+        sbt
+        scala
+        dotenv
+        fzf
+        zsh-interactive-cd)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -169,6 +170,7 @@ export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansiblevault
 export JDK_HOME=/usr/lib/jvm/default/
 export PAGER=nvimpager
 export MANPAGER=nvimpager
+export JAVA_HOME=/usr/lib/jvm/default/
 
 export GPG_TTY=$(tty)
 
@@ -181,4 +183,3 @@ eval "$(fnm env --use-on-cd)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-source /home/dan/.config/broot/launcher/bash/br

@@ -1,11 +1,4 @@
 return {
-
-  -- no need for a dashboard
-  {
-    "goolord/alpha-nvim",
-    enabled = false,
-  },
-
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
@@ -24,16 +17,6 @@ return {
         css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
       })
     end,
-  },
-  -- Disable lsp progress on  noice - because jdtls spams errors
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      lsp = {
-        enabled = false,
-      },
-    },
   },
   { import = "lazyvim.plugins.extras.ui.mini-animate" },
 }

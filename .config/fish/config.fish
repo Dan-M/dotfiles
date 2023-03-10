@@ -3,21 +3,9 @@ if status is-interactive
   starship init fish | source
   direnv hook fish   | source
   zoxide init fish   | source
+
 end
 
-# Colors
-# set -l teal 94e2d5
-# set -l flamingo f2cdcd
-# set -l mauve cba6f7
-# set -l pink f5c2e7
-# set -l red f38ba8
-# set -l peach fab387
-# set -l green a6e3a1
-# set -l yellow f9e2af
-# set -l blue 89b4fa
-# set -l gray 1f1d2e
-# set -l black 191724
-    
 # Completion Pager Colors
 set -g fish_pager_color_progress $gray
 set -g fish_pager_color_prefix $mauve

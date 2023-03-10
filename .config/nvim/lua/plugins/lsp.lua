@@ -64,7 +64,9 @@ return {
           nls.builtins.diagnostics.eslint_d.with({ condition = is_eslint_configured }),
           -- Lua
           nls.builtins.formatting.stylua,
-          -- nls.builtins.diagnostics.luacheck,
+
+          nls.builtins.diagnostics.luacheck,
+
           -- shell
           nls.builtins.formatting.shfmt,
           nls.builtins.diagnostics.shellcheck,
