@@ -96,7 +96,7 @@ abbr -a -g print-key "xev -event keyboard | egrep -o 'keycode.*\)'"
 abbr -a -g df 'df -h'                          # human-readable sizes
 abbr -a -g free 'free -m'                      # show sizes in MB
 
-abbr -a -g cpgl "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+abbr -a -g gl "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # broot
 abbr -a -g br 'broot -dhp'
