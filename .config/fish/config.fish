@@ -118,5 +118,8 @@ function su
    command su --shell=/usr/bin/fish $argv
 end
 
+# use vi keybindings
+fish_vi_key_bindings
+
 set PATH $PATH /home/dan/.local/bin
 
