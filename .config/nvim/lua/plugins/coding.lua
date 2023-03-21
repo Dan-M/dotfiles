@@ -84,4 +84,13 @@ return {
       })
     end,
   },
+
+  {
+    "unisonweb/unison",
+    branch = "trunk",
+    rtp = "/editor-support/vim",
+    config = function()
+      --  require("unisonweb/unison").setup({})
+    end,
+  },
 }

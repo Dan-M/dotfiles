@@ -1,5 +1,14 @@
 return {
   {
+    "folke/neodev.nvim",
+    opts = {
+      debug = true,
+      experimental = {
+        pathStrict = true,
+      },
+    },
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -39,6 +48,7 @@ return {
       },
     },
   },
+
   {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function()
@@ -77,4 +87,5 @@ return {
 
   { import = "plugins.extra.lang.java" },
   { import = "plugins.extra.lang.typescript" },
+  --  { import = "plugins.extra.lang.unison" },
 }
