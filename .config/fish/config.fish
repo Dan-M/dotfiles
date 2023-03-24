@@ -55,8 +55,12 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Exports
-export VISUAL="nvim"
-export EDITOR="$VISUAL"
+#
+set -gx EDITOR (which nvim)
+set -gx VISUAL $EDITOR
+set -gx SUDO_EDITOR $EDITOR
+
+set -gx GRAAL_VM_HOME /usr/lib/jvm/java-19-graalvm
 
 # Term
 switch "$TERM_EMULATOR"
@@ -121,5 +125,4 @@ end
 # use vi keybindings
 fish_vi_key_bindings
 
-set PATH $PATH /home/dan/.local/bin
-
+fish_add_path ~/.local/bin
