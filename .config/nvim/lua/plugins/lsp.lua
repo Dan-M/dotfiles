@@ -10,8 +10,9 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        "ansible-language-server",
         "bash-language-server",
         "clojure-lsp",
         "css-lsp",
@@ -32,19 +33,101 @@ return {
         "shfmt",
         "stylua",
         "tailwindcss-language-server",
-        "taplo",
         "typescript-language-server",
         "vim-language-server",
         "yaml-language-server",
         "yamlfmt",
         "yamllint",
+      })
+    end,
+    ui = {
+      icons = {
+        package_installed = "✓",
+        package_pending = "",
+        package_uninstalled = "✗",
       },
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "",
-          package_uninstalled = "✗",
+    },
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        yamlls = {
+          settings = {
+            yaml = {
+              schemaStore = {
+                enable = true,
+              },
+              keyOrdering = false,
+              format = {
+                enable = false,
+                printWidth = 120,
+                bracketSpacing = true,
+              },
+              -- use yamllint to lint
+              validate = false,
+              schemas = {
+                {
+                  description = "Docker Compose",
+                  fileMatch = {
+                    "docker-compose.yml",
+                  },
+                  url = "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json",
+                },
+              },
+            },
+          },
         },
+        jsonls = {
+          settings = {
+            json = {
+              schemaStore = {
+                enable = true,
+              },
+              format = {
+                keepLines = false,
+              },
+              schemas = {
+                {
+                  description = "NPM packages",
+                  fileMatch = {
+                    "package.json",
+                  },
+                  url = "https://json.schemastore.org/package.json",
+                },
+                {
+                  description = "Prettier",
+                  fileMatch = {
+                    ".prettierrc.json",
+                    ".prettierrc",
+                  },
+                  url = "https://json.schemastore.org/prettierrc.json",
+                },
+                {
+                  description = "ts config",
+                  fileMatch = {
+                    "tsconfig.json",
+                  },
+                  url = "https://json.schemastore.org/tsconfig.json",
+                },
+                {
+                  description = "eslint rc",
+                  fileMatch = {
+                    ".eslintrc.json",
+                    ".eslintrc",
+                  },
+                  url = "https://json.schemastore.org/eslintrc.json",
+                },
+              },
+              validate = {
+                enable = true,
+              },
+            },
+          },
+        },
+        docker_compose_language_service = {},
       },
     },
   },
@@ -53,7 +136,6 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function()
       local nls = require("null-ls")
-
       local function is_file(path)
         local cwd = vim.fn.getcwd()
         local stat = vim.loop.fs_stat(cwd .. path)
