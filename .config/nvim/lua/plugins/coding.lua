@@ -84,13 +84,29 @@ return {
       })
     end,
   },
-
   {
     "unisonweb/unison",
     branch = "trunk",
     rtp = "/editor-support/vim",
     config = function()
       --  require("unisonweb/unison").setup({})
+    end,
+  },
+  {
+    "SmiteshP/nvim-navbuddy",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      local navbuddy = require("nvim-navbuddy")
+      navbuddy.setup({
+        lsp = {
+          auto_attach = true,
+          preference = nil,
+        },
+      })
     end,
   },
 }
