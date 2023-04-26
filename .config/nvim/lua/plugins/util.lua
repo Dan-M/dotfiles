@@ -27,7 +27,7 @@ return {
         desc = "Explorer NeoTree (cwd)",
       },
       { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (root dir)", remap = true },
-      { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
+      { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)",      remap = true },
     },
   },
   {
@@ -156,4 +156,11 @@ return {
       },
     },
   },
+  {
+    "james1236/backseat.nvim",
+    opts = {
+      openai_api_key = vim.env.OPENAI_API_KEY,
+      openai_model_id = 'gpt-3.5-turbo', --gpt-4
+    }
+  }
 }
