@@ -76,6 +76,7 @@ return {
     },
     opts = {
       defaults = {
+        file_ignore_patterns = { "node_modules", "target", "build" },
         prompt_prefix = " ",
         selection_caret = " ",
         layout_strategy = "vertical",
