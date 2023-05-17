@@ -23,7 +23,6 @@ return {
       })
     end,
   },
-  { "TimUntersberger/neogit", dependencies = "nvim-lua/plenary.nvim" },
   {
     -- TODO configure
     "akinsho/git-conflict.nvim",
@@ -36,7 +35,6 @@ return {
     opts = function()
       require("which-key").register({
         ["<leader>gy"] = { name = "Github Link", mode = { "n", "v" } },
-        ["<leader>gn"] = { "<cmd>Neogit<cr>", "Neogit" },
       })
     end,
   },
