@@ -128,8 +128,60 @@ return {
           },
         },
         docker_compose_language_service = {},
+        lua_ls = {
+          single_file_support = true,
+          settings = {
+            Lua = {
+              workspace = {
+                checkThirdParty = false,
+              },
+              completion = {
+                workspaceWord = true,
+                callSnippet = "Both",
+              },
+              misc = {
+                parameters = {
+                  "--log-level=trace",
+                },
+              },
+              diagnostics = {
+                globals = { "vim" },
+                disable = { "incomplete-signature-doc" },
+                -- enable = false,
+                groupSeverity = {
+                  strong = "Warning",
+                  strict = "Warning",
+                },
+                groupFileStatus = {
+                  ["ambiguity"] = "Opened",
+                  ["await"] = "Opened",
+                  ["codestyle"] = "None",
+                  ["duplicate"] = "Opened",
+                  ["global"] = "Opened",
+                  ["luadoc"] = "Opened",
+                  ["redefined"] = "Opened",
+                  ["strict"] = "Opened",
+                  ["strong"] = "Opened",
+                  ["type-check"] = "Opened",
+                  ["unbalanced"] = "Opened",
+                  ["unused"] = "Opened",
+                },
+                unusedLocalExclude = { "_*" },
+              },
+              format = {
+                enable = false,
+                defaultConfig = {
+                  indent_style = "space",
+                  indent_size = "2",
+                  continuation_indent_size = "2",
+                },
+              },
+            },
+          },
+        },
       },
     },
+    dependencies = { "folke/neodev.nvim" },
   },
 
   {
@@ -155,7 +207,7 @@ return {
           nls.builtins.diagnostics.eslint_d.with({ condition = is_eslint_configured }),
           -- Lua
           nls.builtins.formatting.stylua,
-          nls.builtins.diagnostics.luacheck,
+          -- nls.builtins.diagnostics.luacheck,
           -- shell
           nls.builtins.formatting.shfmt,
           nls.builtins.diagnostics.shellcheck,
