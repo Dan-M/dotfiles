@@ -179,14 +179,46 @@ return {
             },
           },
         },
+        ---@type lspconfig.options.tsserver
+        tsserver = {
+          settings = {
+            typescript = {
+              format = {
+                enable = false,
+              },
+            },
+            javascript = {
+              format = {
+                enable = false,
+              },
+            },
+            completions = {
+              completeFunctionCalls = true,
+            },
+          },
+        },
       },
+    },
+    setup = {
+      tsserver = function(_, opts)
+        require("lazyvim.util").on_attach(function(client, buffer)
+          if client.name == "tsserver" then
+          -- stylua: ignore
+          vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", { buffer = buffer, desc = "Organize Imports" })
+          -- stylua: ignore
+          vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>", { desc = "Rename File", buffer = buffer })
+          end
+        end)
+        require("typescript").setup({ server = opts })
+        return true
+      end,
     },
     dependencies = { "folke/neodev.nvim" },
   },
 
   {
     "jose-elias-alvarez/null-ls.nvim",
-    opts = function()
+    opts = function(_, opts)
       local nls = require("null-ls")
       local function is_file(path)
         local cwd = vim.fn.getcwd()
@@ -199,6 +231,8 @@ return {
       local function is_prettier_configured()
         return is_file("/.prettierrc") or is_file("/.prettierrc.json")
       end
+
+      table.insert(opts.sources, require("typescript.extensions.null-ls.code-actions"))
 
       return {
         sources = {
@@ -218,8 +252,5 @@ return {
       }
     end,
   },
-
   { import = "plugins.extra.lang.java" },
-  { import = "plugins.extra.lang.typescript" },
-  --  { import = "plugins.extra.lang.unison" },
 }
