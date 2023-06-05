@@ -6,14 +6,6 @@ return {
     end,
   },
   {
-    "gorbit99/codewindow.nvim",
-    config = function()
-      local codewindow = require("codewindow")
-      codewindow.setup()
-      codewindow.apply_default_keybinds()
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
@@ -70,20 +62,7 @@ return {
       })
     end,
   },
-  {
-    "vim-test/vim-test",
-    cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
-    config = function() end,
-  },
   -- update whichkey bindings
-  {
-    "folke/which-key.nvim",
-    opts = function()
-      require("which-key").register({
-        ["<leader>tn"] = { name = "Test nearest" },
-      })
-    end,
-  },
   {
     "unisonweb/unison",
     branch = "trunk",
