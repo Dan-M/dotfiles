@@ -13,20 +13,12 @@ return {
     "nvim-neotest/neotest",
     opts = {
       adapters = {
-        "neotest-plenary",
-        ["neotest-jest"] = {
-          jestCommand = "pnpm test --",
-          cwd = function(path)
-            return vim.fn.getcwd()
-          end,
-          is_test_file = function(path)
-            return string.find(path, "test")
-          end,
-        },
+        ["neotest-jest"] = {},
         "neotest-playwright",
         ["neotest-vim-test"] = {
           irgnore_filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
         },
+        "neotest-plenary",
       },
       status = { virtual_text = true },
       output = { open_on_run = true },
