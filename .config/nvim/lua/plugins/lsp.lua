@@ -53,6 +53,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       ---@type lspconfig.options
+      inlay_hints = { enabled = true },
       servers = {
         yamlls = {
           settings = {
@@ -185,6 +186,15 @@ return {
             typescript = {
               format = {
                 enable = false,
+              },
+              inlayHints = {
+                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayVariableTypeHints = true,
               },
             },
             javascript = {
