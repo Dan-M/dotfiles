@@ -62,42 +62,6 @@ return {
       })
     end,
   },
-  -- update whichkey bindings
-  {
-    "unisonweb/unison",
-    branch = "trunk",
-    rtp = "/editor-support/vim",
-    config = function()
-      --  require("unisonweb/unison").setup({})
-    end,
-  },
-  {
-    "SmiteshP/nvim-navbuddy",
-    requires = {
-      "neovim/nvim-lspconfig",
-      "SmiteshP/nvim-navic",
-      "MunifTanjim/nui.nvim",
-    },
-    config = function()
-      local navbuddy = require("nvim-navbuddy")
-      navbuddy.setup({
-        lsp = {
-          auto_attach = true,
-          preference = nil,
-        },
-      })
-    end,
-  },
-  -- update whichkey bindings
-  {
-    "folke/which-key.nvim",
-    opts = function()
-      require("which-key").register({
-        ["<leader>cO"] = { name = "Navbuddy", cmd = "<cmd>Navbuddy<cr>" },
-      })
-    end,
-  },
-
   {
     "simrat39/rust-tools.nvim",
   },

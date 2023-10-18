@@ -207,6 +207,9 @@ return {
             },
           },
         },
+        jdtls = {
+          root_dir = require("jdtls.setup").find_root({ ".git" });
+        }
       },
     },
     setup = {
@@ -227,40 +230,64 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      local function is_file(path)
-        local cwd = vim.fn.getcwd()
-        local stat = vim.loop.fs_stat(cwd .. path)
-        return stat and stat.type == "file" or false
-      end
-      local function is_eslint_configured()
-        return is_file("/.eslintrc.json")
-      end
-      local function is_prettier_configured()
-        return is_file("/.prettierrc") or is_file("/.prettierrc.json")
-      end
-
-      table.insert(opts.sources, require("typescript.extensions.null-ls.code-actions"))
-
+    "mfussenegger/nvim-jdtls",
+    opts = function()
       return {
-        sources = {
-          -- js / ts
-          nls.builtins.formatting.prettierd.with({ condition = is_prettier_configured }),
-          nls.builtins.diagnostics.eslint_d.with({ condition = is_eslint_configured }),
-          -- Lua
-          nls.builtins.formatting.stylua,
-          -- nls.builtins.diagnostics.luacheck,
-          -- shell
-          nls.builtins.formatting.shfmt,
-          nls.builtins.diagnostics.shellcheck,
-          -- yaml
-          nls.builtins.formatting.yamlfmt,
-          nls.builtins.diagnostics.yamllint,
+        -- root_dir = require("lspconfig.server_configurations.jdtls").default_config.root_dir,
+        root_dir = function()
+          return vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1])
+        end,
+        -- How to find the project name for a given root dir.
+        project_name = function(root_dir)
+          return root_dir and vim.fs.basename(root_dir)
+        end,
+
+        -- Where are the config and workspace dirs for a project?
+        jdtls_config_dir = function(project_name)
+          return vim.fn.stdpath("cache") .. "/jdtls/" .. project_name .. "/config"
+        end,
+        jdtls_workspace_dir = function(project_name)
+          return vim.fn.stdpath("cache") .. "/jdtls/" .. project_name .. "/workspace"
+        end,
+
+        -- How to run jdtls. This can be overridden to a full java command-line
+        -- if the Python wrapper script doesn't suffice.
+        -- cmd = { "jdtls" },
+        cmd = {
+          "jdtls",
+          "--jvm-arg=-javaagent:/home/dan/.local/share/nvim/mason/packages/jdtls/lombok.jar",
+          "--jvm-arg=-XX:+UseParallelGC",
+          "--jvm-arg=-XX:GCTimeRatio=4",
+          "--jvm-arg=-XX:AdaptiveSizePolicyWeight=90",
+          "--jvm-arg=-Dsun.zip.disableMemoryMapping=true",
+          "--jvm-arg=-Xmx3G",
+          "--jvm-arg=-Xms512m",
+          "--jvm-arg=-Dlog.protocol=true",
+          "--jvm-arg=-Dlog.level=ALL",
+          "--jvm-arg=--add-modules=ALL-SYSTEM",
+          "--jvm-arg=-Xlog:disable",
         },
+
+        full_cmd = function(opts)
+          local fname = vim.api.nvim_buf_get_name(0)
+          local root_dir = opts.root_dir(fname)
+          local project_name = opts.project_name(root_dir)
+          local cmd = vim.deepcopy(opts.cmd)
+          if project_name then
+            vim.list_extend(cmd, {
+              "-configuration",
+              opts.jdtls_config_dir(project_name),
+              "-data",
+              opts.jdtls_workspace_dir(project_name),
+            })
+          end
+          return cmd
+        end,
+
+        -- These depend on nvim-dap, but can additionally be disabled by setting false here.
+        dap = { hotcodereplace = "auto", config_overrides = {} },
+        test = true,
       }
-    end,
-  },
-  { import = "plugins.extra.lang.java" },
+    end
+  }
 }
