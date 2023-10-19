@@ -233,7 +233,7 @@ return {
     "mfussenegger/nvim-jdtls",
     opts = function()
       return {
-        -- root_dir = require("lspconfig.server_configurations.jdtls").default_config.root_dir,
+        -- root dir only .git to work with maven hierarchical project
         root_dir = function()
           return vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1])
         end,
@@ -287,6 +287,74 @@ return {
         -- These depend on nvim-dap, but can additionally be disabled by setting false here.
         dap = { hotcodereplace = "auto", config_overrides = {} },
         test = true,
+
+        settings = {
+          java = {
+            configuration = {
+              updateBuildConfiguration = "automatic",
+            },
+            codeGeneration = {
+              toString = {
+                template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+              },
+              useBlocks = true,
+            },
+            completion = {
+              favoriteStaticMembers = {
+                "org.assertj.core.api.Assertions.*",
+                "org.junit.Assert.*",
+                "org.junit.Assume.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "org.junit.jupiter.api.Assumptions.*",
+                "org.junit.jupiter.api.DynamicContainer.*",
+                "org.junit.jupiter.api.DynamicTest.*",
+                "org.mockito.Mockito.*",
+                "org.mockito.ArgumentMatchers.*",
+                "org.mockito.Answers.*",
+              },
+              importOrder = {
+                "#",
+                "java",
+                "javax",
+                "org",
+                "com",
+              },
+            },
+            contentProvider = { preferred = "fernflower" },
+            eclipse = {
+              downloadSources = true,
+            },
+            flags = {
+              allow_incremental_sync = true,
+              server_side_fuzzy_completion = true,
+            },
+            implementationsCodeLens = {
+              enabled = false, --Don"t automatically show implementations
+            },
+            inlayHints = {
+              parameterNames = { enabled = "literals" },
+            },
+            maven = {
+              downloadSources = true,
+            },
+            referencesCodeLens = {
+              enabled = true, --Don"t automatically show references
+            },
+            references = {
+              includeDecompiledSources = true,
+            },
+            saveActions = {
+              organizeImports = false,
+            },
+            signatureHelp = { enabled = true },
+            sources = {
+              organizeImports = {
+                starThreshold = 9999,
+                staticStarThreshold = 9999,
+              },
+            },
+          },
+        },
       }
     end
   }
