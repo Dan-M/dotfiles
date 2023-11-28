@@ -53,7 +53,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       ---@type lspconfig.options
-      inlay_hints = { enabled = true },
+      inlay_hints = { enabled = false },
       servers = {
         yamlls = {
           settings = {
@@ -208,8 +208,8 @@ return {
           },
         },
         jdtls = {
-          root_dir = require("jdtls.setup").find_root({ ".git" });
-        }
+          root_dir = require("jdtls.setup").find_root({ ".git" }),
+        },
       },
     },
     setup = {
@@ -235,7 +235,7 @@ return {
       return {
         -- root dir only .git to work with maven hierarchical project
         root_dir = function()
-          return vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1])
+          return vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
         end,
         -- How to find the project name for a given root dir.
         project_name = function(root_dir)
@@ -356,6 +356,6 @@ return {
           },
         },
       }
-    end
-  }
+    end,
+  },
 }
