@@ -104,6 +104,7 @@ return {
       telescope.setup(opts)
       telescope.load_extension("fzf")
       telescope.load_extension("howdoi")
+      telescope.load_extension("import")
     end,
   },
   {
@@ -229,5 +230,32 @@ return {
     "chrisgrieser/nvim-origami",
     event = "BufReadPost", -- later or on keypress would prevent saving folds
     opts = true, -- needed even when using default config
+  },
+
+  -- Get infos about diagnostic from chatgpt or search for it
+  {
+    "piersolenski/wtf.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {},
+    keys = {
+      {
+        "gw",
+        mode = { "n", "x" },
+        function()
+          require("wtf").ai()
+        end,
+        desc = "Debug diagnostic with AI",
+      },
+      {
+        mode = { "n" },
+        "gW",
+        function()
+          require("wtf").search()
+        end,
+        desc = "Search diagnostic with Google",
+      },
+    },
   },
 }
