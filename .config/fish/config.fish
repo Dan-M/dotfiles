@@ -1,8 +1,8 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-  starship init fish | source
-  direnv hook fish   | source
-  zoxide init fish | source
+    starship init fish | source
+    direnv hook fish | source
+    zoxide init fish | source
 end
 
 # Colors
@@ -40,7 +40,7 @@ set -g __fish_git_prompt_char_stashstate '⚑'
 set -g __fish_git_prompt_char_untrackedfiles '?'
 set -g __fish_git_prompt_char_upstream_ahead ''
 set -g __fish_git_prompt_char_upstream_behind ''
-set -g __fish_git_prompt_char_upstream_diverged 'ﱟ'
+set -g __fish_git_prompt_char_upstream_diverged ﱟ
 set -g __fish_git_prompt_char_upstream_equal ''
 set -g __fish_git_prompt_char_upstream_prefix ''''
 
@@ -62,19 +62,20 @@ set -gx SUDO_EDITOR $EDITOR
 
 set -gx GRAAL_VM_HOME /usr/lib/jvm/java-19-graalvm
 
+set -gx BAT_THEME OneHalfDark
+
 # Term
 switch "$TERM_EMULATOR"
-case '*kitty*'
-	export TERM='xterm-kitty'
-case '*'
-	export TERM='xterm-256color'
+    case '*kitty*'
+        export TERM='xterm-kitty'
+    case '*'
+        export TERM='xterm-256color'
 end
 
 # Abbrevations
-abbr -a -g d 'dirs'
-abbr -a -g c 'clear'
-abbr -a -g h 'history'
-abbr -a -g upd 'paru -Syu --noconfirm'
+abbr -a -g d dirs
+abbr -a -g c clear
+abbr -a -g h history
 abbr -a -g untar 'tar -zxvf'
 abbr -a -g genpass 'openssl rand -base64 20'
 abbr -a -g sha 'shasum -a 256'
@@ -85,20 +86,20 @@ abbr -a -g wloff 'rfkill block wlan'
 abbr -a -g wlon 'rfkill unblock wlan'
 
 abbr -a -g ls 'exa -al --color=always --group-directories-first'
-abbr -a -g la 'exa -a --color=always --group-directories-first'  # all files and dirs
-abbr -a -g ll 'exa -l --color=always --group-directories-first'  # long format
+abbr -a -g la 'exa -a --color=always --group-directories-first' # all files and dirs
+abbr -a -g ll 'exa -l --color=always --group-directories-first' # long format
 abbr -a -g lt 'exa -aT --color=always --group-directories-first' # tree listing
 
 # start vlc using the web cam
 abbr -a -g vlcme 'cvlc v4l2:// :input-slave=alsa:// :v4l-vdev="/dev/video0"'
-abbr -a -g vi 'nvim'
-abbr -a -g vim 'nvim'
+abbr -a -g vi nvim
+abbr -a -g vim nvim
 
-abbr -a -g colorselect 'gcolor2'
+abbr -a -g colorselect gcolor2
 abbr -a -g print-key "xev -event keyboard | egrep -o 'keycode.*\)'"
 
-abbr -a -g df 'df -h'                          # human-readable sizes
-abbr -a -g free 'free -m'                      # show sizes in MB
+abbr -a -g df 'df -h' # human-readable sizes
+abbr -a -g free 'free -m' # show sizes in MB
 
 abbr -a -g gl "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
@@ -110,16 +111,30 @@ abbr -a -g cpcurl 'curl -H "Content-Type: application/json" -H "cp-axa-user-id: 
 
 abbr -a -g dotfiles "/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
+# remove package and dependencies
+abbr -a -g pkgrm "paru -Rs "
+
+# install package
+abbr -a -g pgki "paru -S "
+
+# mark package explicitely installed
+abbr -a -g pkgmarkexp "paru -D --asexplicit "
+
+# search package
+abbr -a -g pgks "paru "
+
+# update all without confirmation
+abbr -a -g pkgu 'paru -Syu --noconfirm'
 
 # Source plugins
 # Useful plugins: archlinux bang-bang cd colorman sudope vcs
 if test -d "$HOME/.local/share/omf/pkg/colorman/"
-	source ~/.local/share/omf/pkg/colorman/init.fish
+    source ~/.local/share/omf/pkg/colorman/init.fish
 end
 
 # Make su launch fish
 function su
-   command su --shell=/usr/bin/fish $argv
+    command su --shell=/usr/bin/fish $argv
 end
 
 # use vi keybindings
