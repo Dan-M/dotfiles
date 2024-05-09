@@ -288,6 +288,14 @@ client.background                         #ffffff
 # Start when i3 starts...
 # #################################################################
 
+exec_always --no-startup-id clipcatd    # start clipcatd at startup
+
+set $launcher-clipboard-insert clipcat-menu insert
+set $launcher-clipboard-remove clipcat-menu remove
+
+bindsym $mod+p exec $launcher-clipboard-insert
+bindsym $mod+o exec $launcher-clipboard-remove
+
 # Start compositor
 exec_always --no-startup-id               killall picom;  picom --experimental-backends -b -c
 
@@ -296,3 +304,5 @@ exec --no-startup-id                      nitrogen --restore
 
 # Run Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh --cuts
+
+
