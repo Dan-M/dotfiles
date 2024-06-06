@@ -1,0 +1,113 @@
+* {
+  font-family: Source Code Pro;
+  font-size: 12px;
+  padding: 0px 5px 0px 5px;
+  border-radius: 10px;
+}
+
+window#waybar {
+  background: rgba(0, 0, 0, 0);
+}
+
+#custom-launcher {
+  font-size: 20px;
+  color: black;
+  background: #94e2d5;
+  padding: 0px 12px 0px 4px;
+  margin: 0px;
+}
+
+#cpu {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 0px 0px 0px;
+}
+
+#memory {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 0px 0px 5px;
+}
+
+#temperature {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 5px 0px 5px;
+}
+
+#custom-pacman-update {
+  color: #1e1e2e;
+  background: #8bd5ca;
+  margin: 0px 0px 0px 10px;
+}
+
+#workspaces {
+  background: #94e2d5;
+}
+
+#workspaces button {
+  border-radius: 15px;
+  padding: 0px;
+}
+
+#workspaces button label {
+  color: #1e1e2e;
+  margin: 0px 3px 0px 3px;
+  padding: 0px;
+}
+
+#workspaces button.active {
+  background: #94e2d5;
+  margin: 2px 0px 2px 0px;
+  border-radius: 15px;
+}
+
+#battery {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 5px 0px 5px;
+}
+
+#backlight {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 5px 0px 0px;
+}
+
+#pulseaudio {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 5px 0px 0px;
+}
+
+#network {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 5px 0px 0px;
+}
+
+#clock {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 5px 0px 0px;
+}
+
+#custom-power-menu {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 0px 0px 5px;
+  padding: 0px 5px 0px 0px;
+}
+
+#custom-media-control {
+  color: #1e1e2e;
+  background: #94e2d5;
+}
+
+#bluetooth {
+  color: #1e1e2e;
+  background: #94e2d5;
+  margin: 0px 5px 0px 0px;
+}
+
+/*# sourceMappingURL=style.css.map */

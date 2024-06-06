@@ -64,6 +64,8 @@ set -gx GRAAL_VM_HOME /usr/lib/jvm/java-19-graalvm
 
 set -gx BAT_THEME OneHalfDark
 
+set -gx HYPRSHOT_DIR ~/Pictures/screenshots/
+
 # Term
 switch "$TERM_EMULATOR"
     case '*kitty*'
