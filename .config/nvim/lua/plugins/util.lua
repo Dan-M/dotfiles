@@ -238,7 +238,9 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
     },
-    opts = {},
+    opts = {
+      openai_model_id = "gpt-4",
+    },
     keys = {
       {
         "gw",
