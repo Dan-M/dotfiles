@@ -38,7 +38,7 @@ window#waybar {
 #custom-pacman-update {
   color: #1e1e2e;
   background: #8bd5ca;
-  margin: 0px 0px 0px 10px;
+  margin: 0px 5px 0px 0px;
 }
 
 #workspaces {

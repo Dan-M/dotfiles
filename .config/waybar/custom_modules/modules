@@ -9,13 +9,14 @@
   "custom/pacman-update": {
     "format": " <b>{}</b>",
     "interval": 3600,
-    "exec": "checkupdates | wc -l",
-    "signal": 8
+    "exec": "~/.config/waybar/scripts/checkupdates",
+    "signal": 8,
+    "on-click": "hyprctl dispatch -- exec alacritty -t sys_paru --hold --command paru &"
   },
 
   "custom/power-menu": {
     "format": "⏻",
-    "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh &"
+    "on-click": "bash ~/.local/bin/powermenu.sh &"
   },
 
   "custom/media-control": {
@@ -30,5 +31,4 @@
     "on-click": "bash $HOME/.config/waybar/scripts/focus-window-by-title.sh ncspot &",
     "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
   }
-
 }

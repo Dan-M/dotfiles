@@ -10,7 +10,13 @@
     "margin-right": 0,
     "spacing": 0,
 
-    "modules-left": ["cpu", "memory", "temperature", "hyprland/workspaces"],
+    "modules-left": [
+      "cpu",
+      "memory",
+      "temperature",
+      "custom/pacman-update",
+      "hyprland/workspaces"
+    ],
 
     "modules-center": [],
 
@@ -21,13 +27,13 @@
       "network",
       "pulseaudio",
       "clock",
-      "custom/power-menu",
+      "custom/power-menu"
     ],
 
     "clock": {
       "format": "<b>{:%H:%M}</b>",
       "format-alt": "<b>{:%a.%d,%b}</b>",
-      "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+      "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
 
     "pulseaudio": {
@@ -36,28 +42,28 @@
       "format-bluetooth-muted": "<b>󰗿</b>",
       "tooltip": false,
       "format-muted": " 婢 ",
-      "on-click": "pavucontrol",
+      "on-click": "pavucontrol"
     },
 
     "cpu": {
       "interval": 10,
       "format": " <b>{usage}%</b>",
       "max-length": 10,
-      "tooltip": false,
+      "tooltip": false
     },
 
     "memory": {
       "interval": 30,
       "format": "﬙ <b>{used}GiB</b>",
       "format-alt": " <b>{used:0.1f}G</b>",
-      "max-length": 10,
+      "max-length": 10
     },
 
     "temperature": {
       "thermal-zone": 0,
       "critical-threshold": 80,
       "format-critical": " {temperatureC}°C</b>",
-      "format": " <b>{temperatureC}°C</b>",
+      "format": " <b>{temperatureC}°C</b>"
     },
 
     "hyprland/workspaces": {
@@ -66,13 +72,8 @@
       "format": "<b>{name}</b>",
       "format-icons": {
         "urgent": "󰗖",
-        "default": "",
-      },
-    },
-
-    "tray": {
-      "icon-size": 20,
-      "spacing": 4,
+        "default": ""
+      }
     },
 
     "battery": {
@@ -80,13 +81,13 @@
       "interval": 30,
       "states": {
         "warning": 30,
-        "critical": 15,
+        "critical": 15
       },
       "format": "<b>{icon} {capacity}%</b>",
       "format-charging": "<b>{icon}⚡{capacity}%</b>",
       "format-icons": [" ", " ", " ", " "],
       "max-length": 25,
-      "tooltip": false,
+      "tooltip": false
     },
 
     "network": {
@@ -94,7 +95,7 @@
       "format-ethernet": "󰈀",
       "tooltip": false,
       "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh",
-      "format-disconnected": "<b>󰈂</b>",
+      "format-disconnected": "<b>󰈂</b>"
     },
 
     "bluetooth": {
@@ -103,7 +104,7 @@
       "format-disabled": "<b>󰂲</b>",
       "interval": 30,
       "on-click": "bash ~/.config/waybar/scripts/rofi-bluetooth",
-      "tooltip": false,
-    },
-  },
+      "tooltip": false
+    }
+  }
 ]
