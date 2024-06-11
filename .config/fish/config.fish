@@ -92,6 +92,9 @@ abbr -a -g la 'exa -a --color=always --group-directories-first' # all files and 
 abbr -a -g ll 'exa -l --color=always --group-directories-first' # long format
 abbr -a -g lt 'exa -aT --color=always --group-directories-first' # tree listing
 
+abbr -a -g gg lazygit
+abbr -a -g ldo lazydocker
+
 # start vlc using the web cam
 abbr -a -g vlcme 'cvlc v4l2:// :input-slave=alsa:// :v4l-vdev="/dev/video0"'
 abbr -a -g vi nvim
