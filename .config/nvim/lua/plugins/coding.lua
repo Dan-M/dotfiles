@@ -74,20 +74,13 @@ return {
 			show_unknown_classes = true, -- Shows the unknown classes popup
 		},
 	},
-	{
-		"luckasRanarison/nvim-devdocs",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {},
-	},
-	{
-		"piersolenski/telescope-import.nvim",
-		dependencies = "nvim-telescope/telescope.nvim",
-		config = function()
-			-- require("telescope").load_extension("import")
-		end,
-	},
+	--	{
+	--		"luckasRanarison/nvim-devdocs",
+	--		dependencies = {
+	--			"nvim-lua/plenary.nvim",
+	--			"nvim-telescope/telescope.nvim",
+	--			"nvim-treesitter/nvim-treesitter",
+	--		},
+	--		opts = {},
+	--	},
 }

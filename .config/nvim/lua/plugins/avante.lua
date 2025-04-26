@@ -26,7 +26,7 @@ return {
 			"MunifTanjim/nui.nvim",
 			--- The below dependencies are optional,
 			"echasnovski/mini.pick", -- for file_selector provider mini.pick
-			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+			-- "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
 			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
 			"ibhagwan/fzf-lua", -- for file_selector provider fzf
 			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
@@ -71,6 +71,10 @@ return {
 						require("mcphub.extensions.avante").mcp_tool(),
 					}
 				end,
+				web_search_engine = {
+					provider = "google", -- tavily, serpapi, searchapi, google, kagi, brave, or searxng
+					proxy = nil, -- proxy support, e.g., http://127.0.0.1:7890
+				},
 			})
 		end,
 	},
