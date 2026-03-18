@@ -131,6 +131,8 @@ abbr -a -g pgks "paru "
 # update all without confirmation
 abbr -a -g pkgu 'paru -Syu --noconfirm'
 
+abbr -a -g os '~/.config/tmux/scripts/ws pick'
+
 # Source plugins
 # Useful plugins: archlinux bang-bang cd colorman sudope vcs
 if test -d "$HOME/.local/share/omf/pkg/colorman/"
